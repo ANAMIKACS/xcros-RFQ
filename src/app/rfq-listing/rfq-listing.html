@@ -1,1 +1,251 @@
-<p>rfq-listing works!</p>
+<div class="page-wrapper">
+<section class="image-grid">
+
+    <p-carousel #image [value]="images" [numVisible]="3" [numScroll]="1" [circular]="true" [showNavigators]="false"
+        [responsiveOptions]="responsiveOptions">
+
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc" class="carousel-img" />
+        </ng-template>
+
+    </p-carousel>
+    <div class="custom-nav left" (click)="prev()">
+        <i class="pi pi-chevron-left"></i>
+    </div>
+    <div class="custom-nav right" (click)="next()">
+        <i class="pi pi-chevron-right"></i>
+    </div>
+
+</section>
+<section class="filters">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-12 col-lg-6 d-flex align-items-center">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="d-flex justify-content-center align-items-center gap-3 ">
+                            <button type="button" class="show-filters d-flex flex-row px-3 py-2 gap-2 border-0 justify-content-center "
+                                (click)="overlay()">
+
+                                <i class="fa-solid fa-sliders d-flex justify-content-center align-items-center"></i>
+                                <p class="m-0">Show Filters</p>
+                            </button>
+                            @if (isFilterOpen) {
+                                <!-- <div class="filter-overlay"> -->
+                                    <div class="custom-backdrop" (click)="closeFilter()"></div>
+                            <div class="filter-sidebar p-3" [class.open]="isFilterOpen">
+                                <div class="filter-content">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="filterTitle">Filter</p>
+                                        <div class="close-btn">
+                                            <i class="fa-solid fa-xmark" (click)="closeFilter()"></i>
+                                        </div>
+                                    </div>
+                                    <p class="Options pt-3">Property Type</p>
+                                    <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="togglePropertyBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">Property Type</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isPropertyBoxOpen"></i>
+                                        </div>
+                                        @if (isPropertyBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">Plot</div>
+                                                <div class="categorynameTitle">Apartment</div>
+                                                <div class="categorynameTitle">Villa</div>
+                                                <div class="categorynameTitle">Individual</div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                    <p class="Options pt-4">Location</p>
+                                    <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="toggleLocatioBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">All Locations</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isLocationBoxOpen"></i>
+                                        </div>
+                                        @if (isLocationBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">All Location</div>
+                                                <div class="categorynameTitle">Tamil Nadu</div>
+                                                <div class="categorynameTitle">Karnataka</div>
+                                                <div class="categorynameTitle">Andhra Pradesh</div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                     <p class="Options pt-4">City</p>
+                                        <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="toggleCityBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">All Cities</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isCityBoxOpen"></i>
+                                        </div>
+                                        @if (isCityBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">All Cities</div>
+                                                <div class="categorynameTitle">Chennai</div>
+                                                <div class="categorynameTitle">Coimbatore</div>
+                                                <div class="categorynameTitle">Trichy</div>
+                                            </div>
+                                        </div>
+                                        }
+                                        </div>
+                                    <p class="Options pt-4">Pincode</p>
+                                    <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="togglePincodeBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">All Pincodes</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isPincodeBoxOpen"></i>
+                                        </div>
+                                        @if (isPincodeBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">All Cities</div>
+                                                <div class="categorynameTitle">Chennai</div>
+                                                <div class="categorynameTitle">Coimbatore</div>
+                                                <div class="categorynameTitle">Trichy</div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                     <p class="Options pt-4"></p>
+                                     <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="togglePincodeBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">All Pincodes</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isPincodeBoxOpen"></i>
+                                        </div>
+                                        @if (isPincodeBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">All Cities</div>
+                                                <div class="categorynameTitle">Chennai</div>
+                                                <div class="categorynameTitle">Coimbatore</div>
+                                                <div class="categorynameTitle">Trichy</div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+
+
+                                </div>
+                            </div>
+                                <!-- </div> -->
+                            
+
+                            }
+                          
+                        </div>
+                        
+                    </div>
+                </div>
+
+                @if (isViewMapOpen) {
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15346778.079700144!2d58.931226176230695!3d24.36700599805653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1772530819370!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                }
+            </div>
+             <div class="col-12 col-lg-6 d-flex justify-content-end">
+
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="featured d-flex gap-3 justify-content-center align-items-center">
+                            <p class="m-0">Sort by:</p>
+                            <div class="featured-dropdown">
+                                <button class="featured-btn" (click)="toggleFeatured()">
+                                    <span><i class="fa-solid fa-bars"></i></span>{{ selectedFeatured }}
+                                    <span class="arrow">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </span>
+                                </button>
+
+                                @if (isFeaturedOpen) {
+                                <ul class="featured-list">
+                                    @for (option of featuredOptions; track option) {
+                                    <li (click)="selectFeatured(option)" [class.active]="option === selectedFeatured">
+                                        {{ option }}
+                                    </li>
+                                    <hr class="m-0">
+                                    }
+                                </ul>
+                                }
+                            </div>
+                        </div>
+
+                        <button type="button" class="view-map px-3 py-2 gap-2 justify-content-center align-items-center"
+                            (click)="toggleViewMap()">
+                            <i class="fa-solid fa-sliders"></i>
+                            <p class="m-0">View Map</p>
+                        </button>
+
+                    </div>
+                </div>
+                @if (isViewMapOpen) {
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15346778.079700144!2d58.931226176230695!3d24.36700599805653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1772530819370!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                }
+        </div>
+    </section>
+</div>
