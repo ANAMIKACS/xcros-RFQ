@@ -1,37 +1,38 @@
 <div class="page-wrapper">
-<section class="image-grid">
+    <section class="image-grid">
 
-    <p-carousel #image [value]="images" [numVisible]="3" [numScroll]="1" [circular]="true" [showNavigators]="false"
-        [responsiveOptions]="responsiveOptions">
+        <p-carousel #image [value]="images" [numVisible]="3" [numScroll]="1" [circular]="true" [showNavigators]="false"
+            [responsiveOptions]="responsiveOptions">
 
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" class="carousel-img" />
-        </ng-template>
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.itemImageSrc" class="carousel-img" />
+            </ng-template>
 
-    </p-carousel>
-    <div class="custom-nav left" (click)="prev()">
-        <i class="pi pi-chevron-left"></i>
-    </div>
-    <div class="custom-nav right" (click)="next()">
-        <i class="pi pi-chevron-right"></i>
-    </div>
+        </p-carousel>
+        <div class="custom-nav left" (click)="prev()">
+            <i class="pi pi-chevron-left"></i>
+        </div>
+        <div class="custom-nav right" (click)="next()">
+            <i class="pi pi-chevron-right"></i>
+        </div>
 
-</section>
-<section class="filters">
-        <div class="container py-3">
+    </section>
+    <section class="filters">
+        <div class="filter-container py-3">
             <div class="row">
                 <div class="col-12 col-lg-6 d-flex align-items-center">
                     <div class="d-flex gap-3 align-items-center">
                         <div class="d-flex justify-content-center align-items-center gap-3 ">
-                            <button type="button" class="show-filters d-flex flex-row px-3 py-2 gap-2 border-0 justify-content-center "
+                            <button type="button"
+                                class="show-filters d-flex flex-row px-3 py-2 gap-2 border-0 justify-content-center "
                                 (click)="overlay()">
 
                                 <i class="fa-solid fa-sliders d-flex justify-content-center align-items-center"></i>
                                 <p class="m-0">Show Filters</p>
                             </button>
                             @if (isFilterOpen) {
-                                <!-- <div class="filter-overlay"> -->
-                                    <div class="custom-backdrop" (click)="closeFilter()"></div>
+                            <!-- <div class="filter-overlay"> -->
+                            <div class="custom-backdrop" (click)="closeFilter()"></div>
                             <div class="filter-sidebar p-3" [class.open]="isFilterOpen">
                                 <div class="filter-content">
                                     <div class="d-flex flex-row justify-content-between">
@@ -69,7 +70,7 @@
                                         </div>
                                         }
                                     </div>
-                                    <p class="Options pt-4">Location</p>
+                                    <p class="Options pt-3">Location</p>
                                     <div class="category">
                                         <div class="category-header d-flex flex-row justify-content-between"
                                             (click)="toggleLocatioBoxOpen()">
@@ -98,8 +99,8 @@
                                         </div>
                                         }
                                     </div>
-                                     <p class="Options pt-4">City</p>
-                                        <div class="category">
+                                    <p class="Options pt-3">City</p>
+                                    <div class="category">
                                         <div class="category-header d-flex flex-row justify-content-between"
                                             (click)="toggleCityBoxOpen()">
                                             <div class="d-flex gap-3">
@@ -126,8 +127,8 @@
                                             </div>
                                         </div>
                                         }
-                                        </div>
-                                    <p class="Options pt-4">Pincode</p>
+                                    </div>
+                                    <p class="Options pt-3">Pincode</p>
                                     <div class="category">
                                         <div class="category-header d-flex flex-row justify-content-between"
                                             (click)="togglePincodeBoxOpen()">
@@ -156,18 +157,18 @@
                                         </div>
                                         }
                                     </div>
-                                     <p class="Options pt-4"></p>
-                                     <div class="category">
+                                    <p class="Options pt-3">Budget</p>
+                                    <div class="category">
                                         <div class="category-header d-flex flex-row justify-content-between"
-                                            (click)="togglePincodeBoxOpen()">
+                                            (click)="toggleBudgetBoxOpen()">
                                             <div class="d-flex gap-3">
                                                 <i class="fa-solid fa-bars"></i>
-                                                <p class="m-0">All Pincodes</p>
+                                                <p class="m-0">All Budgets</p>
                                             </div>
                                             <i class="fa-solid fa-chevron-down text-black"
-                                                [class.rotate]="isPincodeBoxOpen"></i>
+                                                [class.rotate]="isBudgetBoxOpen"></i>
                                         </div>
-                                        @if (isPincodeBoxOpen) {
+                                        @if (isBudgetBoxOpen) {
                                         <div class="category-box-contents py-3">
                                             <div class="search_container">
                                                 <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
@@ -177,40 +178,82 @@
                                             </div>
                                             <div class="greenline"> </div>
                                             <div class="categoryTitle">
-                                                <div class="categorynameTitle">All Cities</div>
-                                                <div class="categorynameTitle">Chennai</div>
-                                                <div class="categorynameTitle">Coimbatore</div>
-                                                <div class="categorynameTitle">Trichy</div>
+                                                <div class="categorynameTitle">All Budgets</div>
+                                                <div class="categorynameTitle">Below 30 Lakhs</div>
+                                                <div class="categorynameTitle">31 Lakhs to 5 Crores</div>
+                                                <div class="categorynameTitle">Above 5 Crores</div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                    <p class="Options pt-3">Property Status</p>
+                                    <div class="category">
+                                        <div class="category-header d-flex flex-row justify-content-between"
+                                            (click)="toggleStatusBoxOpen()">
+                                            <div class="d-flex gap-3">
+                                                <i class="fa-solid fa-bars"></i>
+                                                <p class="m-0">All Budgets</p>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down text-black"
+                                                [class.rotate]="isStatusBoxOpen"></i>
+                                        </div>
+                                        @if (isStatusBoxOpen) {
+                                        <div class="category-box-contents py-3">
+                                            <div class="search_container">
+                                                <p class="search-btn m-0"><i class="fa-solid fa-magnifying-glass"></i>
+                                                </p>
+                                                <input type="text" pInputText [(ngModel)]="value"
+                                                    placeholder="Search" />
+                                            </div>
+                                            <div class="greenline"> </div>
+                                            <div class="categoryTitle">
+                                                <div class="categorynameTitle">All Budgets</div>
+                                                <div class="categorynameTitle">Below 30 Lakhs</div>
+                                                <div class="categorynameTitle">31 Lakhs to 5 Crores</div>
+                                                <div class="categorynameTitle">Above 5 Crores</div>
                                             </div>
                                         </div>
                                         }
                                     </div>
 
+                                    <div class="col-12 mt-4">
+                                        <div class="open-btn d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-clock"></i> Open
+                                            <div class="check"><i class="fa-solid fa-check"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 mt-4">
+                                            <div class="d-flex flex-row gap-2">
+                                                <button type="button" class="search-button">
+                                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                                    <div class="vertical-line"></div>
+                                                    <p class="m-0">Search</p>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 mt-4">
+                                            <div class="reset-filter">
+                                                <i class="fa-solid fa-rotate-left d-flex align-items-center"></i>
+                                                Reset Filter
+                                            </div>
 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                                <!-- </div> -->
-                            
 
                             }
-                          
+
                         </div>
-                        
+
                     </div>
                 </div>
-
-                @if (isViewMapOpen) {
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15346778.079700144!2d58.931226176230695!3d24.36700599805653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1772530819370!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                }
-            </div>
-             <div class="col-12 col-lg-6 d-flex justify-content-end">
+                <div class="col-12 col-lg-6 d-flex justify-content-end">
 
                     <div class="d-flex gap-3 align-items-center">
                         <div class="featured d-flex gap-3 justify-content-center align-items-center">
-                            <p class="m-0">Sort by:</p>
+
                             <div class="featured-dropdown">
                                 <button class="featured-btn" (click)="toggleFeatured()">
                                     <span><i class="fa-solid fa-bars"></i></span>{{ selectedFeatured }}
@@ -246,6 +289,190 @@
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 }
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container py-3">
+            <div class="row g-3">
+                @for (item of dashboardData; track item) {
+                <div class="col-12 col-md-4 five-cols">
+
+                    <div class="info-card d-flex flex-row justify-content-between">
+
+                        <div class="info-icon">
+                            <img [src]="item.icon" [alt]="item.title">
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <div class="info-value">{{ item.value }}</div>
+                            <p>{{ item.title }}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="listing-section">
+        <div class="listing-container">
+            <div class="row g-3">
+
+                <div class="col-12 col-lg-8 pt-3">
+                    <div class="all-listing-box">
+
+                        <div class="listing-box-header" (click)="toggleListing()">
+                            <p class="listing-title">All Listing</p>
+                            <i class="fa-solid fa-chevron-down" [class.rotate]="isAllListingOpen"></i>
+                        </div>
+
+
+                        @if (isAllListingOpen) {
+                        <div class="listing-body">
+
+                            @for (item of listings; track item) {
+                            <div class="listing-card">
+
+
+                                <div class="listing-left">
+                                    <img [src]="item.image" alt="img">
+                                    <h6>{{ item.user }}</h6>
+                                    <p><i class="fa fa-calendar"></i> {{ item.date }}</p>
+                                </div>
+                                <div class="v-line"></div>
+
+                                <div class="listing-middle">
+                                    <p><span class="title">Property Type:</span> {{ item.type }}</p>
+                                    <p><span class="title">Property City:</span> {{ item.city }}</p>
+                                    <p><span class="title">Property Location:</span> {{ item.location }}</p>
+                                    <p><span class="title">Loan Required:</span> {{ item.loan }}</p>
+                                    <p><span class="title">Loan % Required:</span> {{ item.loanPercent }}</p>
+                                </div>
+                                <div class="v-line"></div>
+
+                                <div class="listing-description">
+                                    <span class="badge">Wanted</span>
+                                    <p class="descrp">{{description}}</p>
+                                </div>
+                                <div class="v-line"></div>
+
+                                <div class="listing-right d-flex justify-content-center align-items-center flex-column">
+                                    <div class="stats-box ">
+                                        <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                            <div class="m-0 d-flex flex-row gap-2">
+                                                <i class="fa-solid fa-eye d-flex align-items-center"></i>
+                                                <p class="m-0">Views:</p>
+                                            </div>
+                                            <p class="m-0">100+</p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                            <div class="m-0 d-flex flex-row gap-2">
+                                                <i class="fa-solid fa-envelope d-flex align-items-center"></i>
+                                                <p class="m-0">Replies</p>
+                                            </div>
+                                            <p class="m-0">100+</p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                            <div class="m-0 d-flex flex-row gap-2">
+                                                <i class="fa-solid fa-heart d-flex align-items-center"></i>
+                                                <p class="m-0">Interests</p>
+                                            </div>
+                                            <p class="m-0">100+</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="timer-box d-flex flex-column">
+                                        <p class="m-0">00 : 00 : 00</p>
+                                        <p class="m-0">Hours :Mins :sec</p>
+                                    </div>
+
+                                    <button class="view-btn">View Details ></button>
+                                </div>
+
+                            </div>
+                            }
+
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-12 pt-3">
+                        <div class="all-listing-box">
+                            <div class="listing-box-header" (click)="toggleMedia()">
+                                <p class="listing-title">Media</p>
+                                <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                            </div>
+                            @if (isMediaOpen) {
+                            <div class="media-body">
+                                @for (item of marketingItems; track item; let last = $last) {
+                                <p class="px-4 mt-3">{{ item }}</p>
+                                @if (!last) {
+                                <hr>
+                                }
+                                }
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-12 pt-3">
+                        <div class="all-listing-box">
+                            <div class="listing-box-header" (click)="toggleCategories()">
+                                <p class="listing-title">Categories</p>
+                                <i class="fa-solid fa-chevron-down" [class.rotate]="isCategoriesOpen"></i>
+                            </div>
+                            @if (isCategoriesOpen) {
+                            <div class="Categories-body">
+
+                                @for(category of categories; track category){
+                                <div class="px-4">
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+
+                                        <p class="m-0">{{ category.name }}</p>
+
+                                        <p class="m-0 value">{{ category.value }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                }
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-12 pt-3">
+                        <div class="all-listing-box">
+                            <div class="listing-box-header" (click)="toggleStatistics()">
+                                <p class="listing-title">Statistics</p>
+                                <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
+                            </div>
+                            @if (isStatisticsOpen) {
+                            <div class="statistics-body p-2">
+
+                                @for(stat of statistics; track stat){
+                                <div class="stat-item mb-2">
+                                    <div
+                                        class="statistics-box d-flex flex-row align-items-center justify-content-between">
+                                        <p class="stats-title m-0">{{ stat.title }}</p>
+                                        <p class="m-0 stats-value">{{ stat.value }}</p>
+                                    </div>
+                                </div>
+                                }
+
+                            </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 </div>
