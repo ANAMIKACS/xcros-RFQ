@@ -1,0 +1,182 @@
+.form{
+  padding: 0 !important;
+  .left-image{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .left-content-image{
+    z-index: 9998;
+    position: relative;
+    padding: 0 !important;
+  }
+  .left-content{
+    z-index: 9999;
+    position: absolute;
+    top:30%;
+  }
+  .left-content .row{
+  margin-left: 0;
+  margin-right: 0;
+}
+  .main-head{
+    font-size: 42px;
+    width: 90%;
+    font-weight: 600;
+    color: #fff;
+  }
+  .tab{
+    background: linear-gradient(0deg, #008080 0%, #008F8F 100%);
+    width:100%;
+    height: fit-content;
+    color: #fff;
+    padding: 17px 20px;
+    border-radius: 14px;
+    position: relative;
+
+  }
+  .tab-content{
+    position: relative;
+    z-index: 2;
+  }
+  .circle-small{
+    background-color: #1d9898;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top:50%;
+    z-index: 1;
+    left: 10%;
+    position: absolute;
+  }
+  .circle-big{
+    background-color: #1d9898;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top:20%;
+    z-index: 1;
+    right: 10%;
+    position: absolute;
+  }
+  .experience{
+    background: linear-gradient(90deg, #008080 0.01%, #FF9800 100%);
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+
+  }
+  .years{
+    color: #fff;
+    font-size: 26px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  .category{
+    color: #fff;
+    z-index: 3;
+  }
+  .wave-line img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 10%;
+    z-index: 1;
+  }
+
+  //second section
+  .content{
+    height: 750px !important;
+  }
+  .icon{
+    background-color: #F5F7F8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon i{
+    font-size: 23px;
+  }
+.menu-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+
+}
+
+.line {
+  width:50px;
+  height: 2px;
+  background: #000000;
+
+}
+
+
+
+//general
+.date,.form{
+  width: 100%;
+  gap: 70px;
+}
+.date p, .form p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-box{
+  background-color: #F5F7F8;
+  border: none;
+  width:100%;
+  height: 60px;
+}
+.hr-line{
+  display: flex;
+  align-self: flex-end;
+  height: 2px;
+  background-color: #F5F7F8;
+  margin-top: 10px;
+}
+
+.prev-button{
+  width: 50%;
+  background-color: #fecb7f;
+  color: #F5F7F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0%;
+}
+.next-button{
+  width: 50%;
+  background-color:#008080;
+  color: #F5F7F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0%;
+}
+.buttons{
+  height: 70px;
+}
+
+:host ::ng-deep .p-stepper-separator {
+  background-color: #000000 !important;
+  height: 2px !important;
+  width: 100% !important;
+}
+}

@@ -1,3 +1,272 @@
 <section class="form">
+  <div class="row p-0 m-0">
+    <!--left content-->
+    <div class="col-12 col-lg-4 p-0 m-0">
+  <div class="left-content-image">
 
+    <img [src]="backgorund" class="left-image" alt="">
+
+
+    <div class="left-content">
+      <div class="container">
+        <p class="main-head">Home Mela Exclusive Benefits</p>
+
+           <div class="row g-3">
+            @for (tab of tabs; track tab) {
+              <div class="col-6">
+                <div class="tab">
+                  <div class="circle-big"></div>
+                  <div class="circle-small"></div>
+                  <div class="tab-content">
+                    <p class="fs-5">{{ tab.title }}</p>
+                    <p class="m-0">{{ tab.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+          <div class="g-3">
+            <div class="experience mt-4">
+            <div class="wave-line">
+              <img [src]="waveLine" alt="">
+            </div>
+            <div class="d-flex flex-row  justify-content-evenly">
+              @for (year of years; track year){
+                <div class="d-flex flex-column">
+                  <p class="years m-0">{{year.Expyear}}</p>
+
+                <p class="category">{{year.category}}</p>
+                </div>
+
+              }
+            </div>
+          </div>
+          </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!--right-content-->
+    <div class="col-12 col-lg-8 p-2 m-0">
+      <!-- <div class="container">
+        <div class="menu p-4">
+
+
+ <div class="divider d-flex flex-row justify-content-evenly">
+
+  @for (section of sections; track $index; let i = $index) {
+
+    <div class="menu-item d-flex flex-row gap-4">
+
+      <div class="icon">
+        <i class="fa-solid fa-cubes"></i>
+      </div>
+
+      <div class="label">
+        {{ section.label }}
+      </div>
+
+
+    @if (i < sections.length - 1) {
+      <div class="line"></div>
+    }
+
+    </div>
+
+
+  }
+
+</div>
+
+
+
+      </div>
+      <div class="content">
+
+
+    <div class="general-details px-4">
+      <h3>General Details</h3>
+      <div class="d-flex flex-row gap-5">
+        <div class="date d-flex flex-row justify-content-between">
+          <p class="m-0">Date</p>
+          <input type="text" class="date-box">
+        </div>
+
+        <div class="form d-flex flex-row justify-content-between">
+          <p class="m-0">Form</p>
+          <input type="text" class="date-box">
+        </div>
+      </div>
+      <div class="hr-line"></div>
+    </div>
+
+      <div class="d-flex flex-row gap-5">
+        <div class="radio-section px-4">
+            <p>Date</p>
+          </div>
+            <div class="d-flex flex-row gap-5  align-items-center flex-wrap" style="width: 900px">
+              <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="d-flex flex-row gap-5 mt-3">
+        <div class="radio-button d-flex flex-row gap-2">
+        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+        <label for="friends">Friends/Relatives</label>
+      </div>
+      <div class="radio-button d-flex flex-row gap-2">
+        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+        <label for="friends">Friends/Relatives</label>
+      </div>
+      </div>
+            </div>
+
+
+      </div>
+
+</div>
+
+      </div>
+
+<div class="buttons d-flex flex-row gap-0 p-0 m-0">
+  <button type="button" class="prev-button btn" [class.active]="" (click)="previous()">Previous</button>
+  <button type="button" class="next-button btn" (click)="next()">Next</button>
+</div> -->
+
+
+<div class="flex justify-center">
+            <p-stepper [value]="1" class="basis-[50rem]">
+                <p-step-list>
+                    <p-step [value]="">Header I</p-step>
+                    <p-step [value]="">Header II</p-step>
+                    <p-step [value]="">Header III</p-step>
+                    <p-step [value]="">Header IV</p-step>
+                    <p-step [value]="">Header V</p-step>
+
+                </p-step-list>
+                <p-step-panels>
+                    <p-step-panel [value]="1">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col" style="height: 700px;">
+                              <div class="general-details px-4">
+      <h3>General Details</h3>
+      <div class="d-flex flex-row gap-5">
+        <div class="date d-flex flex-row justify-content-between">
+          <p class="m-0">Date</p>
+          <input type="text" class="date-box">
+        </div>
+
+        <div class="form d-flex flex-row justify-content-between">
+          <p class="m-0">Form</p>
+          <input type="text" class="date-box">
+        </div>
+      </div>
+      <div class="hr-line"></div>
+    </div>
+
+      <div class="d-flex flex-row gap-5">
+        <div class="radio-section px-4">
+            <p>Date</p>
+          </div>
+            <div class="d-flex flex-row gap-5  align-items-center flex-wrap" style="width: 900px">
+              <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="radio-button d-flex flex-row gap-2">
+              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+              <label for="friends">Friends/Relatives</label>
+            </div>
+            <div class="d-flex flex-row gap-5 mt-3">
+        <div class="radio-button d-flex flex-row gap-2">
+        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+        <label for="friends">Friends/Relatives</label>
+      </div>
+      <div class="radio-button d-flex flex-row gap-2">
+        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
+        <label for="friends">Friends/Relatives</label>
+      </div>
+      </div>
+                            </div>
+
+      </div>
+      </div>
+                          <div class="buttons d-flex flex-row">
+                              <p-button label="Previous" severity="secondary" icon="pi pi-arrow-left" class="prev-button"/>
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(2)"  class="next-button"/>
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                    <p-step-panel [value]="2">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                            </div>
+                            <div class="flex pt-6 justify-between">
+                                <p-button label="Back" severity="secondary" icon="pi pi-arrow-left" (onClick)="activateCallback(1)" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(3)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                    <p-step-panel [value]="3">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                            </div>
+                            <div class="flex pt-6 justify-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(2)" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(4)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                    <p-step-panel [value]="4">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content IV</div>
+                            </div>
+                            <div class="flex pt-6 justify-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(3)" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(5)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                    <p-step-panel [value]="5">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content V</div>
+                            </div>
+                            <div class="flex pt-6 justify-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(4)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                </p-step-panels>
+            </p-stepper>
+        </div>
+
+    </div>
+  </div>
 </section>
