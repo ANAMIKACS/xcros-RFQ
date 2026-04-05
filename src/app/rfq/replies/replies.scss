@@ -1,0 +1,113 @@
+
+.replies-header {
+  background: #008080;
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+}
+
+.reply-card {
+  background: white;
+  margin-top: 15px;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.reply-left {
+  align-items: flex-start;   /* 🔥 important */
+  gap: 15px;
+}
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.content {
+  margin-left: 0;   /* ensure left align */
+}
+
+.content h3 {
+  margin: 0;
+}
+
+.date {
+  background: #008080;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-flex;      /* 🔥 keep inline */
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  width: fit-content;        /* 🔥 FIX */
+}
+.desc {
+  color: #666;
+  max-width: 500px;
+}
+
+.view-btn {
+  background: #FF9800;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* RIGHT */
+.reply-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* DOWNLOAD */
+.download-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.green {
+  background: #008080;
+}
+
+.orange {
+  background: #FF9800;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.stat-box {
+  background: #eee;
+  padding: 8px 12px;
+  border-radius: 8px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box {
+  background: #FF9800;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,170 @@
+<div class="listing-section-header">
+
+  <p class="m-0">Listings</p>
+
+  <div class="d-flex gap-2">
+
+    <input type="date" class="filter-input"[(ngModel)]="selectedDate">
+   <div class="custom-dropdown" (click)="toggleDropdown()">
+
+  <div class="selected">
+    {{ selectedCategory || 'All Categories' }}
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+
+  @if (isDropdownOpen) {
+  <div class="dropdown-menu">
+
+    <div class="dropdown-item" (click)="selectCategory('')">
+      All Categories
+    </div>
+
+    @for (cat of categories; track cat) {
+      <div class="dropdown-item" (click)="selectCategory(cat)">
+        {{ cat }}
+      </div>
+    }
+
+  </div>
+  }
+
+</div>
+
+  </div>
+
+</div>
+<div class="listing-section">
+                    
+                    @for (item of listings; track item) {
+                    <div class="listing-card gap-3">
+
+                        <div class="listing-left">
+                            <img [src]="item.image">
+                            <p class="user-name">{{ item.user }}</p>
+                            <p class="date"><i class="fa fa-calendar"></i> {{ item.date }}</p>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="listing-middle">
+                            <p><span class="title">Property Type:</span> {{ item.type }}</p>
+                            <p><span class="title">Property City:</span> {{ item.city }}</p>
+                            <p><span class="title">Property Location:</span> {{ item.location }}</p>
+                            <p><span class="title">Loan Required:</span> {{ item.loan }}</p>
+                            <p><span class="title">Loan % Required:</span> {{ item.loanPercent }}</p>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="listing-description">
+                            <span class="badge">Wanted</span>
+                            <p class="descrp">{{description}}</p>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="listing-right d-flex justify-content-center align-items-center flex-column">
+                            <div class="stats-box ">
+                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                    <div class="m-0 d-flex flex-row gap-2">
+                                        <i class="fa-solid fa-eye d-flex align-items-center"></i>
+                                        <p class="m-0">Views:</p>
+                                    </div>
+                                    <p class="m-0">100+</p>
+                                </div>
+                                <hr>
+                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                    <div class="m-0 d-flex flex-row gap-2">
+                                        <i class="fa-solid fa-envelope d-flex align-items-center"></i>
+                                        <p class="m-0">Replies</p>
+                                    </div>
+                                    <p class="m-0">100+</p>
+                                </div>
+                                <hr>
+                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                                    <div class="m-0 d-flex flex-row gap-2">
+                                        <i class="fa-solid fa-heart d-flex align-items-center"></i>
+                                        <p class="m-0">Interests</p>
+                                    </div>
+                                    <p class="m-0">100+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="v-line"></div>
+                        <div class="listing-end">
+                            <div class="timer-box">00 : 00 : 00</div>
+                            <div class="action-buttons">
+                                <div class="d-flex flex-row justify-content-between mb-2">
+                                    <button class="btn" (click)="openPopup('call')">
+                                        <i class="fa fa-phone"></i> Click to Call
+                                    </button>
+
+                                    <button class="btn" (click)="openPopup('chat')">
+                                        <i class="fa fa-comments"></i> Click to Chat
+                                    </button>
+                                </div>
+
+                                <div class="d-flex flex-row justify-content-evenly mb-2">
+                                    <button class="btn" (click)="openPopup('meeting')">
+                                        <i class="fa fa-calendar"></i> Schedule Meeting
+                                    </button>
+
+                                    <button class="btn" (click)="openPopup('report')">
+                                        <i class="fa fa-flag"></i>
+                                    </button>
+
+                                    <button class="btn" (click)="openPopup('message')">
+                                        <i class="fa fa-envelope"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            @if (activePopup === 'report') {
+                            <div class="overlay">
+                                <div class="popup">
+                                    <div class="popup-header">
+                                        Report Form
+                                        <span (click)="closePopup()">✖</span>
+                                    </div>
+
+                                    <input placeholder="Name of the User">
+                                    <textarea placeholder="What do you want to report?"></textarea>
+
+                                    <button class="submit-btn">Submit</button>
+                                </div>
+                            </div>
+                            }
+
+                            @if (activePopup === 'message') {
+                            <div class="overlay">
+                                <div class="popup">
+                                    <div class="popup-header">
+                                        Send a Message
+                                        <span (click)="closePopup()">✖</span>
+                                    </div>
+
+                                    <input placeholder="Property Name">
+                                    <textarea placeholder="Message"></textarea>
+
+                                    <button class="submit-btn">Submit</button>
+                                </div>
+                            </div>
+                            }
+
+                            @if (activePopup === 'meeting') {
+                            <div class="overlay">
+                                <div class="popup">
+                                    <div class="popup-header">
+                                        Schedule a Meeting
+                                        <span (click)="closePopup()">✖</span>
+                                    </div>
+
+                                    <input placeholder="Your Name">
+                                    <input placeholder="Mobile Number">
+                                    <input type="date">
+                                    <textarea placeholder="Your message"></textarea>
+
+                                    <button class="submit-btn">Book Visit</button>
+                                </div>
+                            </div>
+                            }
+                            <button class="view-btn">View Details</button>
+                        </div>
+
+                    </div>
+                }

@@ -1,0 +1,170 @@
+
+.matches-header {
+  background: #008080;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+.filter-input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
+.match-card {
+  background: #f9fcff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.img-box {
+  position: relative;
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #008080;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.views {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #FF9800;
+  color: white;
+  padding: 4px 5px;
+  border-radius: 20px;
+  font-size:10px;
+}
+
+.price {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.icons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  
+}
+
+.icons i {
+  background: rgba(130, 128, 128, 0.788);
+  padding: 6px;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.type {
+  font-size: 12px;
+  color: gray;
+}
+
+.name {
+  margin: 0;
+  font-size: 13px;
+}
+
+.plus-btn {
+  background: #008080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+}
+.plus-btn i{
+    font-size: 10px;
+}
+.location {
+  font-size: 10px;
+  color: #878C9F;
+  font-weight: 400;
+}
+.location i{
+    color:#FF9800;
+}
+.features  {
+  font-size: 8px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#333333;
+}
+
+.features i{
+    background-color: #008080;
+    color: white;
+    font-size: 13px;
+    padding: 7px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    
+}
+.extra{
+    font-size: 10px;
+    color:#878C9F;
+}
+.profile , .time{
+    font-size: 9px;
+    color:#70778B;
+}
+.user-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.btn-page {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #6b7280;
+    border-radius: 0%;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  .active-page {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800 !important;
+  }
+  .btn-page:hover:not(.active-page):not(:disabled) {
+    color: #ff9800;
+    border-color: #ff9800 !important;
+  }

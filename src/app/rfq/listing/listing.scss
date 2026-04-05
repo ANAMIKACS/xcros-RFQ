@@ -1,112 +1,9 @@
-//Background
-.bg{
-    background-image: url('/DetailsUser/bg-img.png');
-  height: 270px; 
-  background-repeat: no-repeat; 
-  background-size: cover;
-  background-position: center;
-}
 
-//Main Section
-.main-section{
-    background-color: #edf7f6;
-    .details-section{
-    padding-inline: 7rem;
-}
-.profile-img {
-  width: 200px;        
-  height: 200px;
-  object-fit: cover;   
-  border-radius: 20px; 
-  margin:0 auto;
-  margin-top: 50px;
-
-}
-    .profile-card {
-        position: relative;
-        margin-top: -200px;
-        width: 100%;
-        padding:20px;
-        border-radius: 20px;
-    }
-
-.profile-icons {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  width: 100%;
-}
-
-.profile-icons i {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #f1f1f1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.left-icon {
-  left: 15px;
-}
-
-.right-icon {
-  right: 15px;
-}
-    // .card img {
-    //     width:100%;
-    //     height: 100%;
-    // }
-    .profile-name{
-        font-size: 20px;
-        font-weight: 600;
-        margin: 0%;
-    }
-
-    .date{
-        font-size: 15px;
-        font-weight: 600;
-    }
+//listing Section
     .date i {
         color:#008080;
     }
-    .profile-title{
-        font-size: 10px;
-    }
-    .percentage{
-        font-weight: 700;
-        font-size: 20px;
-    }
-    .location{
-        font-size: 20px;
-        font-weight: 600;
-    }
-  .buttons {
-  display: flex;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.user-btn, .business-btn {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.user-btn {
-  background: #FF9800;
-  color: white;
-}
-
-.business-btn {
-  background: white;
-}
+   
     .badge {
   background: #1DB697;
   padding: 5px 10px;
@@ -114,84 +11,43 @@
   color: white;
   margin-bottom: 10px;
 }
-.RFQ {
-  background: #008080;
-  border-radius: 8px;
-  overflow: hidden;
+.custom-dropdown {
+  position: relative;
+  width: 180px;
+  cursor: pointer;
 }
-// .rfq-line{
-//     color:1px solid white !important;
-//      height:10px;
-//         display: block;
-// }
-.header {
-  padding: 10px;
+
+.selected {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
   color: black;
-  cursor: pointer;
-  background-color: #fff;
-  font-size: 18px;
-  font-weight: 600;
 }
 
-.rfq-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  color: #cfe6e6;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.rfq-item.active {
+.dropdown-menu {
+  position: absolute;
+  width: 100%;
   background: white;
-  color: #333;
+  border-radius: 6px;
+  margin-top: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
-.circle {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #9bbbbb;
+.dropdown-item {
+  padding: 8px;
 }
 
-.rfq-item.active .circle {
-  background: #ff9800;
+.dropdown-item:hover {
+  background: #008080;
+  color: white;
 }
-.edit-profile{
-    width: 100%;
-    height:100px;
-     background: linear-gradient(
-    135deg,
-    #008080 0%,
-    #5fbf8a 40%,
-    #ff9800 100%
-  );
-  border-radius: 10px;
-  display: flex;
-    margin-top: -50px;
-    margin-bottom: 10px;
-}
-.left-details p{
-    color:white;
-}
-.hr-line{
-    border-left:1px solid black;
-  height:50px;
-  display: block;
-}
-.glass , .sliders{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-.features-card{
-    padding: 20px;
+.listing-section{
+  height:600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #008080 #ffffff;
 }
 .listing-card {
   display: flex;    
@@ -200,6 +56,7 @@
   background: #f8f9f9;
   border-radius: 10px;
   align-items: flex-start;
+
 }
 .listing-section-header{
     background:  #008080 !important;
@@ -209,7 +66,9 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
 }
+
 .listing-left {
   width: 140px;
 }
@@ -405,7 +264,7 @@ background: #FF9800;
 }
 
 
-}
+
 /* Wrapper for listing section */
 .listing-section-wrapper {
   background: #ffffff;

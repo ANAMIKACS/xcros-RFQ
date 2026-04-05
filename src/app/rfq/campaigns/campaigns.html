@@ -1,0 +1,129 @@
+<div class="campaign-section">
+<div class="row">
+
+  <!-- ACTIVITY GRAPH -->
+  <div class="col-lg-6 mb-3">
+    <div class="graph-card">
+      <div class="graph-header">
+        <h5>Activity Graph</h5>
+
+        <div class="toggle">
+          <span>Daily</span>
+          <span>Weekly</span>
+          <span class="active">Monthly</span>
+        </div>
+      </div>
+
+      <div id="activityChart" style="height:300px;"></div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE GRAPH -->
+  <div class="col-lg-6 mb-3">
+    <div class="graph-card">
+      <div class="graph-header">
+        <h5>Performance Graph</h5>
+
+        <div class="toggle">
+          <span>Daily</span>
+          <span>Weekly</span>
+          <span class="active">Monthly</span>
+        </div>
+      </div>
+
+      <div id="performanceChart" style="height:300px;"></div>
+    </div>
+  </div>
+
+</div>
+  <div class="campaign-header">
+    Campaign Listings
+  </div>
+<div class="campaign-body card">
+
+  @for (item of campaigns; track item) {
+
+  <div class="campaign-card card">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <span class="tag">#{{ item.id }}</span>
+
+      <h5 class="title">Campaign Title for RFQ</h5>
+
+      <p class="date">
+        <i class="fa-solid fa-calendar"></i>
+        Start Date {{ item.start }} -
+        <i class="fa-solid fa-calendar"></i>
+        End Date {{ item.end }}
+      </p>
+
+    </div>
+
+    <!-- MIDDLE -->
+    <div class="middle">
+
+      <div class="box d-flex justify-content-between">
+        <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+           <i class="fa-solid fa-dollar-sign"></i>
+        <p class="m-0">Budget</p>
+        </div>
+        <b>₹{{ item.budget }}</b>
+      </div>
+
+      <div class="box d-flex justify-content-between">
+        <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+            <i class="fa-solid fa-folder-open"></i>
+        <p class="m-0">RFQs</p>
+        </div>
+        
+        <b>{{ item.rfq }}+</b>
+      </div>
+
+    </div>
+
+    <div class="right">
+
+      <div class="gradient-box d-flex justify-content-between">
+        <div class="d-flex justify-content-center align-items-center gap-2">
+             <i class="fa-solid fa-coins"></i>
+        <p class="m-0">Cost Per Reach</p>
+        </div>
+        <b>₹{{ item.reach }}</b>
+      </div>
+
+      <div class="gradient-box d-flex justify-content-between">
+        <div class="d-flex justify-content-center align-items-center gap-2">
+             <i class="fa-solid fa-chart-line"></i>
+        <p class="m-0">Click Through rate</p>
+        </div>
+       
+        <b>₹{{ item.ctr }}</b>
+      </div>
+
+    </div>
+
+    <!-- SIDE -->
+    <div class="side">
+
+      <span class="status">Status: In Progress</span>
+
+      <div class="end">
+        <i class="fa-solid fa-eye"></i>
+        Views : {{ item.views }}
+      </div>
+
+      <div class="end">
+        <i class="fa-solid fa-heart"></i>
+        Interests : {{ item.interests }}
+      </div>
+
+    </div>
+
+  </div>
+
+  }
+  </div>
+
+</div>

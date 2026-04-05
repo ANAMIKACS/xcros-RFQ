@@ -1,341 +1,18 @@
-<!-- <section class="bg">
-</section>
-
-<section class="main-section">
-    <div class="details-section">
-        <div class="row">
-
-            <div class="col-12 col-lg-3">
-
-                <div class="card profile-card text-center p-3">
-                    <img src="/DetailsUser/profile-img.png" class="profile-img">
-                    <p class="profile-name">Andy</p>
-                    <p class="date m-0">
-                        <i class="fa-solid fa-calendar"></i> Joined on Nov 26, 2024
-                    </p>
-                    <p class="profile-title m-0">Profile Score</p>
-                    <p class="percentage m-0">87%</p>
-                    <hr>
-                    <p class="location m-0">CHENNAI - 600001</p>
-                </div>
-
-                <div class="RFQ mt-3">
-
-                    <div class="header d-flex justify-content-between" (click)="toggleRfqOpen()">
-                        <p class="rfqtitle m-0">RFQ</p>
-                        <i class="fa-solid fa-chevron-down" [class.rotate]="isRfqBoxOpen"></i>
-                    </div>
-
-                    @if (isRfqBoxOpen) {
-                    <div class="rfq-card">
-
-                        <div class="rfq-item" [class.active]="activeSection==='listing'" (click)="setActive('listing')">
-                            <span class="circle"></span> Listings
-                        </div>
-                        <div class="rfq-line"></div>
-                        <div class="rfq-item" [class.active]="activeSection==='general'" (click)="setActive('general')">
-                            <span class="circle"></span> General Details
-                        </div>
-                        <div class="rfq-line"></div>
-                        <div class="rfq-item" [class.active]="activeSection==='personal'" (click)="setActive('personal')">
-                            <span class="circle"></span> Personal Details
-                        </div>
-
-                        <div class="rfq-item" [class.active]="activeSection==='property'" (click)="setActive('property')">
-                            <span class="circle"></span> Property Details
-                        </div>
-
-                        <div class="rfq-item" [class.active]="activeSection==='replies'" (click)="setActive('replies')">
-                            <span class="circle"></span> Replies
-                        </div>
-
-                        <div class="rfq-item" [class.active]="activeSection==='matches'" (click)="setActive('matches')">
-                            <span class="circle"></span> Matches
-                        </div>
-
-                        <div class="rfq-item" [class.active]="activeSection==='campaigns'" (click)="setActive('campaigns')">
-                            <span class="circle"></span> Campaigns
-                        </div>
-
-                        <div class="rfq-item">
-                            SHOPPING 
-                        </div>
-
-                     
-                    </div>
-                    }
-
-                </div>
-
-            </div>
-            
-            <div class="col-12 col-lg-9">
-                <div class="edit-profile d-flex flex-row justify-content-between p-3">
-                    <div class="left-details d-flex flex-column justify-content-center align-items-center">
-                         <p class="m-0">21</p>
-                         <p class="m-0">Views</p>
-                    </div>
-                   <div class="right-details d-flex flex-row justify-content-center align-items-center gap-2">
-                        <p class="text-white d-flex align-items-center justify-content-center m-0">Edit Profile <i class="fa-regular fa-pen-to-square"></i></p>
-                        <div class="hr-line"></div>
-                        <i class="glass fa-solid fa-magnifying-glass"></i>
-                        <i class="sliders fa-solid fa-sliders"></i>
-                   </div>
-                </div>
-                <div class="card features-card">
-                <div class="features-container py-3">
-                    <div class="row g-3">
-                        @for (item of dashboardData; track item) {
-                        <div class="col-12 col-md-3">
-
-                            <div class="info-card d-flex flex-row justify-content-between">
-
-                                <div class="info-icon">
-                                    <img [src]="item.icon" [alt]="item.title">
-                                </div>
-
-                                <div class="d-flex flex-column">
-                                    <div class="info-value">{{ item.value }}</div>
-                                    <p>{{ item.title }}</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        }
-                    </div>
-                </div>
-
-                @if (activeSection === 'listing') {
-
-                <div class="listing-section">
-                    
-                    @for (item of listings; track item) {
-                    <div class="listing-card gap-3">
-
-                        <div class="listing-left">
-                            <img [src]="item.image">
-                            <p class="user-name">{{ item.user }}</p>
-                            <p class="date"><i class="fa fa-calendar"></i> {{ item.date }}</p>
-                        </div>
-                        <div class="v-line"></div>
-                        <div class="listing-middle">
-                            <p><span class="title">Property Type:</span> {{ item.type }}</p>
-                            <p><span class="title">Property City:</span> {{ item.city }}</p>
-                            <p><span class="title">Property Location:</span> {{ item.location }}</p>
-                            <p><span class="title">Loan Required:</span> {{ item.loan }}</p>
-                            <p><span class="title">Loan % Required:</span> {{ item.loanPercent }}</p>
-                        </div>
-                        <div class="v-line"></div>
-                        <div class="listing-description">
-                            <span class="badge">Wanted</span>
-                            <p class="descrp">{{description}}</p>
-                        </div>
-                        <div class="v-line"></div>
-                        <div class="listing-right d-flex justify-content-center align-items-center flex-column">
-                            <div class="stats-box ">
-                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
-                                    <div class="m-0 d-flex flex-row gap-2">
-                                        <i class="fa-solid fa-eye d-flex align-items-center"></i>
-                                        <p class="m-0">Views:</p>
-                                    </div>
-                                    <p class="m-0">100+</p>
-                                </div>
-                                <hr>
-                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
-                                    <div class="m-0 d-flex flex-row gap-2">
-                                        <i class="fa-solid fa-envelope d-flex align-items-center"></i>
-                                        <p class="m-0">Replies</p>
-                                    </div>
-                                    <p class="m-0">100+</p>
-                                </div>
-                                <hr>
-                                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
-                                    <div class="m-0 d-flex flex-row gap-2">
-                                        <i class="fa-solid fa-heart d-flex align-items-center"></i>
-                                        <p class="m-0">Interests</p>
-                                    </div>
-                                    <p class="m-0">100+</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="v-line"></div>
-                        <div class="listing-end">
-                            <div class="timer-box">00 : 00 : 00</div>
-                            <div class="action-buttons">
-                                <div class="d-flex flex-row justify-content-between mb-2">
-                                    <button class="btn" (click)="openPopup('call')">
-                                        <i class="fa fa-phone"></i> Click to Call
-                                    </button>
-
-                                    <button class="btn" (click)="openPopup('chat')">
-                                        <i class="fa fa-comments"></i> Click to Chat
-                                    </button>
-                                </div>
-
-                                <div class="d-flex flex-row justify-content-evenly mb-2">
-                                    <button class="btn" (click)="openPopup('meeting')">
-                                        <i class="fa fa-calendar"></i> Schedule Meeting
-                                    </button>
-
-                                    <button class="btn" (click)="openPopup('report')">
-                                        <i class="fa fa-flag"></i>
-                                    </button>
-
-                                    <button class="btn" (click)="openPopup('message')">
-                                        <i class="fa fa-envelope"></i>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            @if (activePopup === 'report') {
-                            <div class="overlay">
-                                <div class="popup">
-                                    <div class="popup-header">
-                                        Report Form
-                                        <span (click)="closePopup()">✖</span>
-                                    </div>
-
-                                    <input placeholder="Name of the User">
-                                    <textarea placeholder="What do you want to report?"></textarea>
-
-                                    <button class="submit-btn">Submit</button>
-                                </div>
-                            </div>
-                            }
-
-                            @if (activePopup === 'message') {
-                            <div class="overlay">
-                                <div class="popup">
-                                    <div class="popup-header">
-                                        Send a Message
-                                        <span (click)="closePopup()">✖</span>
-                                    </div>
-
-                                    <input placeholder="Property Name">
-                                    <textarea placeholder="Message"></textarea>
-
-                                    <button class="submit-btn">Submit</button>
-                                </div>
-                            </div>
-                            }
-
-                            @if (activePopup === 'meeting') {
-                            <div class="overlay">
-                                <div class="popup">
-                                    <div class="popup-header">
-                                        Schedule a Meeting
-                                        <span (click)="closePopup()">✖</span>
-                                    </div>
-
-                                    <input placeholder="Your Name">
-                                    <input placeholder="Mobile Number">
-                                    <input type="date">
-                                    <textarea placeholder="Your message"></textarea>
-
-                                    <button class="submit-btn">Book Visit</button>
-                                </div>
-                            </div>
-                            }
-                            <button class="view-btn">View Details</button>
-                        </div>
-
-                    </div>
-                    }
-                     <div class="row">
-                    <div class="col-12 col-lg-4 pt-3">
-                        <div class="all-listing-box">
-                            <div class="listing-box-header" (click)="toggleStatistics()">
-                                <p class="listing-title">Statistics</p>
-                                <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
-                            </div>
-                            @if (isStatisticsOpen) {
-                            <div class="statistics-body p-2">
-
-                                @for(stat of statistics; track stat){
-                                <div class="stat-item mb-2">
-                                    <div
-                                        class="statistics-box d-flex flex-row align-items-center justify-content-between">
-                                        <p class="stats-title m-0">{{ stat.title }}</p>
-                                        <p class="m-0 stats-value">{{ stat.value }}</p>
-                                    </div>
-                                </div>
-                                }
-
-                            </div>
-
-                            }
-                        </div>
-                    </div>
-                <div class="col-12 col-lg-4 pt-3">
-                        <div class="all-listing-box">
-                            <div class="listing-box-header" (click)="toggleMedia()">
-                                <p class="listing-title">Media</p>
-                                <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
-                            </div>
-                            @if (isMediaOpen) {
-                            <div class="media-body">
-                                @for (item of marketingItems; track item; let last = $last) {
-                                <p class="px-4 mt-3">{{ item }}</p>
-                                @if (!last) {
-                                <hr>
-                                }
-                                }
-                            </div>
-                            }
-                        </div>
-                    </div>
-                     <div class="col-12 col-lg-4 pt-3">
-                        <div class="all-listing-box">
-                            <div class="listing-box-header" (click)="toggleMedia()">
-                                <p class="listing-title">Media</p>
-                                <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
-                            </div>
-                            @if (isMediaOpen) {
-                            <div class="media-body">
-                                @for (item of marketingItems; track item; let last = $last) {
-                                <p class="px-4 mt-3">{{ item }}</p>
-                                @if (!last) {
-                                <hr>
-                                }
-                                }
-                            </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-                </div>
-                }
-
-                @if (activeSection === 'general') {
-                <p>General Details Content</p>
-                }
-               
-
-
-                </div>
-                
-
-
-
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
 <section class="bg"></section>
 
 <section class="main-section">
   <div class="details-section">
     <div class="row">
 
-      <!-- 🔹 LEFT SIDE -->
       <div class="col-12 col-lg-3">
 
         <div class="card profile-card text-center p-3">
+          <div class="profile-icons">
+            <i class="fa-solid fa-rotate-right left-icon"></i>
+            <i class="fa-solid fa-sun right-icon"></i>
+          </div>
           <img src="/DetailsUser/profile-img.png" class="profile-img">
+
           <p class="profile-name">Andy</p>
           <p class="date m-0">
             <i class="fa-solid fa-calendar"></i> Joined on Nov 26, 2024
@@ -345,7 +22,17 @@
           <hr>
           <p class="location m-0">CHENNAI - 600001</p>
         </div>
+        <div class="buttons d-flex">
 
+          <div class="user-btn">
+            User
+          </div>
+
+          <div class="business-btn">
+            Business
+          </div>
+
+        </div>
         <div class="RFQ mt-3">
 
           <div class="header d-flex justify-content-between" (click)="toggleRfqOpen()">
@@ -356,44 +43,43 @@
           @if (isRfqBoxOpen) {
           <div class="rfq-card">
 
-            <div class="rfq-item" [class.active]="activeSection==='listing'" (click)="setActive('listing')">
+            <div class="rfq-item" routerLink="listing" routerLinkActive="active">
               <span class="circle"></span> Listings
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='general'" (click)="setActive('general')">
+            <div class="rfq-item" routerLink="general" routerLinkActive="active">
               <span class="circle"></span> General Details
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='personal'" (click)="setActive('personal')">
+            <div class="rfq-item" routerLink="personal" routerLinkActive="active">
               <span class="circle"></span> Personal Details
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='property'" (click)="setActive('property')">
+            <div class="rfq-item" routerLink="property" routerLinkActive="active">
               <span class="circle"></span> Property Details
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='replies'" (click)="setActive('replies')">
+            <div class="rfq-item" routerLink="replies" routerLinkActive="active">
               <span class="circle"></span> Replies
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='matches'" (click)="setActive('matches')">
+            <div class="rfq-item" routerLink="matches" routerLinkActive="active">
               <span class="circle"></span> Matches
             </div>
 
-            <div class="rfq-item" [class.active]="activeSection==='campaigns'" (click)="setActive('campaigns')">
+            <div class="rfq-item" routerLink="campaigns" routerLinkActive="active">
               <span class="circle"></span> Campaigns
             </div>
 
           </div>
           }
+
         </div>
 
       </div>
 
-      <!-- 🔹 RIGHT SIDE -->
       <div class="col-12 col-lg-9">
 
-        <!-- TOP BAR -->
         <div class="edit-profile d-flex justify-content-between p-3">
           <div class="left-details text-center">
             <p class="m-0">21</p>
@@ -401,105 +87,34 @@
           </div>
 
           <div class="right-details d-flex align-items-center gap-2">
-            <p class="text-white m-0">Edit Profile <i class="fa-regular fa-pen-to-square"></i></p>
+            <p class="text-white m-0">
+              Edit Profile <i class="fa-regular fa-pen-to-square"></i>
+            </p>
             <div class="hr-line"></div>
             <i class="glass fa-solid fa-magnifying-glass"></i>
             <i class="sliders fa-solid fa-sliders"></i>
           </div>
         </div>
 
-        <!-- 🔹 MAIN CARD -->
         <div class="card features-card">
 
-          <!-- DASHBOARD -->
           <div class="features-container py-3">
             <div class="row g-3">
+
               @for (item of dashboardData; track item) {
               <div class="col-12 col-md-3">
+
                 <div class="info-card d-flex justify-content-between">
+
                   <div class="info-icon">
                     <img [src]="item.icon">
                   </div>
+
                   <div>
                     <div class="info-value">{{ item.value }}</div>
                     <p>{{ item.title }}</p>
                   </div>
-                </div>
-              </div>
-              }
-            </div>
-          </div>
 
-          <!-- 🔹 LISTING SECTION -->
-          @if (activeSection === 'listing') {
-
-          <div class="listing-section-wrapper">
-
-            <!-- HEADER -->
-            <div class="listing-section-header">
-              <p class="m-0">Listings</p>
-
-              <div class="d-flex gap-2">
-                <input type="text" placeholder="From Date - Last Date" class="filter-input">
-                <select class="filter-input">
-                  <option>Category</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- LISTINGS -->
-            <div class="listing-section">
-
-              @for (item of listings; track item) {
-              <div class="listing-card gap-3">
-
-                <div class="listing-left">
-                  <img [src]="item.image">
-                  <p class="user-name">{{ item.user }}</p>
-                  <p class="date"><i class="fa fa-calendar"></i> {{ item.date }}</p>
-                </div>
-
-                <div class="v-line"></div>
-
-                <div class="listing-middle">
-                  <p><span class="title">Property Type:</span> {{ item.type }}</p>
-                  <p><span class="title">Property City:</span> {{ item.city }}</p>
-                  <p><span class="title">Property Location:</span> {{ item.location }}</p>
-                  <p><span class="title">Loan Required:</span> {{ item.loan }}</p>
-                  <p><span class="title">Loan % Required:</span> {{ item.loanPercent }}</p>
-                </div>
-
-                <div class="v-line"></div>
-
-                <div class="listing-description">
-                  <span class="badge">Wanted</span>
-                  <p class="descrp">{{ description }}</p>
-                </div>
-
-                <div class="v-line"></div>
-
-                <div class="listing-right">
-                  <div class="stats-box">
-                    <p>Views: 100+</p>
-                    <hr>
-                    <p>Replies: 100+</p>
-                    <hr>
-                    <p>Interests: 100+</p>
-                  </div>
-                </div>
-
-                <div class="v-line"></div>
-
-                <div class="listing-end">
-                  <div class="timer-box">00 : 00 : 00</div>
-
-                  <div class="action-buttons">
-                    <button class="btn">Click to Call</button>
-                    <button class="btn">Click to Chat</button>
-                    <button class="btn">Schedule Meeting</button>
-                  </div>
-
-                  <button class="view-btn">View Details</button>
                 </div>
 
               </div>
@@ -507,55 +122,37 @@
 
             </div>
           </div>
-
-          <!-- 🔹 ACCORDIONS -->
+          <router-outlet></router-outlet>
           <div class="row">
-
             <div class="col-12 col-lg-4 pt-3">
               <div class="all-listing-box">
-                            <div class="listing-box-header" (click)="toggleStatistics()">
-                                <p class="listing-title">Statistics</p>
-                                <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
-                            </div>
-                            @if (isStatisticsOpen) {
-                            <div class="statistics-body p-2">
 
-                                @for(stat of statistics; track stat){
-                                <div class="stat-item mb-2">
-                                    <div
-                                        class="statistics-box d-flex flex-row align-items-center justify-content-between">
-                                        <p class="stats-title m-0">{{ stat.title }}</p>
-                                        <p class="m-0 stats-value">{{ stat.value }}</p>
-                                    </div>
-                                </div>
-                                }
-
-                            </div>
-
-                            }
-                        </div>
-            </div>
-
-            <div class="col-12 col-lg-4 pt-3">
-              <div class="all-listing-box">
-                <div class="listing-box-header" (click)="toggleMedia()">
-                  <p class="listing-title">Media</p>
-                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                <div class="listing-box-header" (click)="toggleStatistics()">
+                  <p class="listing-title">Statistics</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
                 </div>
 
-                @if (isMediaOpen) {
-                <div class="media-body">
-                  @for (item of marketingItems; track item) {
-                  <p class="px-4 mt-3">{{ item }}</p>
-                  <hr>
+                @if (isStatisticsOpen) {
+                <div class="statistics-body p-2">
+
+                  @for(stat of statistics; track stat){
+                  <div class="stat-item mb-2">
+                    <div class="statistics-box d-flex justify-content-between">
+                      <p class="m-0">{{ stat.title }}</p>
+                      <p class="m-0">{{ stat.value }}</p>
+                    </div>
+                  </div>
                   }
+
                 </div>
                 }
+
               </div>
             </div>
 
             <div class="col-12 col-lg-4 pt-3">
               <div class="all-listing-box">
+
                 <div class="listing-box-header" (click)="toggleMedia()">
                   <p class="listing-title">Media</p>
                   <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
@@ -563,18 +160,39 @@
 
                 @if (isMediaOpen) {
                 <div class="media-body">
-                  @for (item of marketingItems; track item) {
+                  @for (item of marketingItems; track item; let last = $last) {
                   <p class="px-4 mt-3">{{ item }}</p>
-                  <hr>
+                  @if (!last) {
+                  <hr> }
                   }
                 </div>
                 }
+
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleMedia()">
+                  <p class="listing-title">Media</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                </div>
+
+                @if (isMediaOpen) {
+                <div class="media-body">
+                  @for (item of marketingItems; track item; let last = $last) {
+                  <p class="px-4 mt-3">{{ item }}</p>
+                  @if (!last) {
+                  <hr> }
+                  }
+                </div>
+                }
+
               </div>
             </div>
 
           </div>
-
-          }
 
         </div>
 

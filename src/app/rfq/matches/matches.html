@@ -1,0 +1,116 @@
+<div class="matches-section">
+
+  <div class="matches-header d-flex justify-content-between align-items-center">
+    <p class="m-0">Matches</p>
+
+    <div class="d-flex gap-2">
+      <input type="text" placeholder="From Date - Last Date" class="filter-input">
+      <input type="text" placeholder="Category" class="filter-input">
+    </div>
+  </div>
+
+  <div class="row mt-3">
+
+    @for (item of matches; track item) {
+
+    <div class="col-lg-3 col-md-6 mb-4">
+
+      <div class="match-card card">
+
+        <div class="img-box">
+          <img [src]="item.image">
+
+          <div class="badge">Featured</div>
+
+          <div class="views">
+            <i class="fa-solid fa-eye"></i> Views: 0
+          </div>
+
+          <div class="price">Rs. {{ item.price }}</div>
+
+          <div class="icons">
+            <i class="fa-solid fa-share"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <p class="type m-0">Apartment</p>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="name">{{ item.name }}</h5>
+            <div class="plus-btn"><i class="fa-solid fa-plus"></i></div>
+          </div>
+
+          <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            {{ item.location }}
+          </p>
+
+          <div class="features d-flex justify-content-between">
+
+            <div><i class="fa-solid fa-bed"></i> 5 Beds</div>
+           <div><i class="fa-solid fa-up-right-and-down-left-from-center"></i>2468 Sq</div>
+            <div><i class="fa-solid fa-bath"></i> 3 Bathrooms</div>
+            <div><i class="fa-solid fa-building"></i> Balcony</div>
+
+          </div>
+
+          <hr>
+
+          <p class="extra">
+            Floor 0/10 Parking Common / Open / Covered
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center mt-2">
+
+            <div class="profile d-flex align-items-center gap-2">
+              <img src="/DetailsUser/property-profile.png" class="user-img">
+              <span>By Bill Trust</span>
+            </div>
+
+            <div class="time">4 years ago</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    }
+
+  </div>
+            @if (totalPages > 1) {
+            <div class="d-flex justify-content-center mt-4 gap-2">
+              <button
+                class="btn btn-page border"
+                [disabled]="currentPage === 1"
+                (click)="changePage(currentPage - 1)"
+              >
+                <i class="fa-solid fa-angle-left"></i>
+              </button>
+
+              @for (page of pages; track page) {
+                <button
+                  class="btn btn-page border"
+                  [class.active-page]="currentPage === page"
+                  (click)="changePage(page)"
+                >
+                  {{ page }}
+                </button>
+              }
+
+              <button
+                class="btn btn-page border"
+                [disabled]="currentPage === totalPages"
+                (click)="changePage(currentPage + 1)"
+              >
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          }
+
+</div>
