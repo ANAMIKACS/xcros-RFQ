@@ -10,7 +10,7 @@ import * as echarts from 'echarts';
 })
 export class Campaigns implements AfterViewInit {
 
-  // 🔹 DATA (your campaigns list)
+  // DATA (your campaigns list)
   campaigns = [
     {
       id: 102030,
@@ -58,13 +58,13 @@ export class Campaigns implements AfterViewInit {
     }
   ];
 
-  // 🔹 Lifecycle
+  // Lifecycle
   ngAfterViewInit() {
     this.loadActivityChart();
     this.loadPerformanceChart();
   }
 
-  // 🔹 ACTIVITY GRAPH (multi-line)
+  // ACTIVITY GRAPH (multi-line)
   loadActivityChart() {
     const chartDom = document.getElementById('activityChart');
     if (!chartDom) return;

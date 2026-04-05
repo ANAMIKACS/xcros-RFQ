@@ -19,7 +19,7 @@
 }
 
 .reply-left {
-  align-items: flex-start;   /* 🔥 important */
+  align-items: flex-start;   
   gap: 15px;
 }
 .profile-img {
@@ -28,7 +28,7 @@
   border-radius: 50%;
 }
 .content {
-  margin-left: 0;   /* ensure left align */
+  margin-left: 0;  
 }
 
 .content h3 {
@@ -40,11 +40,10 @@
   color: white;
   padding: 6px 14px;
   border-radius: 20px;
-  display: inline-flex;      /* 🔥 keep inline */
-  align-items: center;
+  display: inline-flex;    
   gap: 8px;
   margin: 10px 0;
-  width: fit-content;        /* 🔥 FIX */
+  width: fit-content;        
 }
 .desc {
   color: #666;
@@ -59,14 +58,12 @@
   border-radius: 20px;
 }
 
-/* RIGHT */
 .reply-right {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* DOWNLOAD */
 .download-btn {
   border: none;
   padding: 10px;
@@ -85,7 +82,6 @@
   background: #FF9800;
 }
 
-/* STATS */
 .stats {
   display: flex;
   gap: 10px;
