@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './property.html',
   styleUrl: './property.scss',
 })
-export class Property {
+export class AdminProperty {
 
 //Media box
   isMediaOpen = false;

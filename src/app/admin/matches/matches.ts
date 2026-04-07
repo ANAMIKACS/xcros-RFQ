@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-matches',
-  imports: [DatePickerModule,FormsModule],
+  imports: [DatePickerModule, FormsModule],
   templateUrl: './matches.html',
   styleUrl: './matches.scss',
 })
-export class Matches {
-  categories: string[] = ['All Categories', 'Apartment', 'Villa', 'Plot'];
+export class AdminMatches {
+categories: string[] = ['All Categories', 'Apartment', 'Villa', 'Plot'];
 
 selectedCategory: string = 'All Categories';
 

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './personal.html',
   styleUrl: './personal.scss',
 })
-export class Personal {
+export class AdminPersonal {
 
 //Media box
   isMediaOpen = false;

@@ -10,12 +10,22 @@ import { Replies } from './rfq/replies/replies';
 import { Matches } from './rfq/matches/matches';
 import { Campaigns } from './rfq/campaigns/campaigns';
 
+import { DetailsAdmin } from './details-admin/details-admin';
+import { AdminListing } from './admin/listing/listing';
+import { AdminGeneral } from './admin/general/general';
+import { AdminPersonal } from './admin/personal/personal';
+import { AdminProperty } from './admin/property/property';
+import { AdminReplies } from './admin/replies/replies';
+import { AdminMatches } from './admin/matches/matches';
+import { AdminCampaigns } from './admin/campaigns/campaigns';
+
 export const routes: Routes = [
-  {path:'rfqform', component:RfqForm},
-  {path:'rfqlisting', component:RfqListing},
- {
+  { path:'rfqform', component:RfqForm },
+  { path:'rfqlisting', component:RfqListing },
+
+  {
     path: 'detailsUser',
-    component: DetailsUser,  
+    component: DetailsUser,
     children: [
       { path: 'listing', component: Listing },
       { path: 'general', component: General },
@@ -24,9 +34,22 @@ export const routes: Routes = [
       { path: 'replies', component: Replies },
       { path: 'matches', component: Matches },
       { path: 'campaigns', component: Campaigns },
-      // { path: '', redirectTo: 'listing', pathMatch: 'full' }
+      { path: '', redirectTo: 'listing', pathMatch: 'full' }
     ]
   },
 
-
+  {
+    path:'detailsAdmin',
+    component: DetailsAdmin,
+    children: [
+      { path: 'listing', component: AdminListing },
+      { path: 'general', component: AdminGeneral },
+      { path: 'personal', component: AdminPersonal },
+      { path: 'property', component: AdminProperty },
+      { path: 'replies', component: AdminReplies },
+      { path: 'matches', component: AdminMatches },
+      { path: 'campaigns', component: AdminCampaigns },
+      { path: '', redirectTo: 'listing', pathMatch: 'full' }
+    ]
+  }
 ];

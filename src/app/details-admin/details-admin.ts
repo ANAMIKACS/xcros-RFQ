@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 
 
 @Component({
-  selector: 'app-details-user',
+  selector: 'app-details-admin',
   imports: [RouterModule],
-  templateUrl: './details-user.html',
-  styleUrl: './details-user.scss',
+  templateUrl: './details-admin.html',
+  styleUrl: './details-admin.scss',
 })
-export class DetailsUser {
+export class DetailsAdmin {
 //RFQ
 
 

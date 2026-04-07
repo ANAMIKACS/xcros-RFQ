@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './replies.html',
   styleUrl: './replies.scss',
 })
-export class Replies {
-   replies = [
+export class AdminReplies {
+replies = [
     {
       image: '/DetailsUser/hotel-img.png',
       name: 'User Name',
@@ -63,5 +63,4 @@ statistics = [
     { title: 'User Replies', value:0},
     { title: 'tags', value:0},
   ];
-
 }

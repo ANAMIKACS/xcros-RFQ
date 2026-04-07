@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './general.html',
   styleUrl: './general.scss',
 })
-export class General {
+export class AdminGeneral {
 
 //Media box
   isMediaOpen = false;

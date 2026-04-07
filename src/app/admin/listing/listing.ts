@@ -7,8 +7,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './listing.html',
   styleUrl: './listing.scss',
 })
-export class Listing {
-  selectedDate: string = '';
+export class AdminListing {
+ selectedDate: string = '';
 
 categories = ['Apartment', 'Villa', 'Plot'];
 isDropdownOpen = false;
@@ -90,6 +90,7 @@ onFileSelect(event: any) {
   const file = event.target.files[0];
   this.selectedFileName = file ? file.name : '';
 }
+
 
 //Media box
   isMediaOpen = false;

@@ -256,6 +256,303 @@ textarea.input {
     margin: 0;
     font-size: 13px;
 }
+
+.campaign-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.overlay-modal {
+    width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #f9fbfc;
+    border-radius: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #008080 #fff;
+}
+
+.campaign-modal .section {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.basic-section {
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.overlay-title {
+    font-weight: 600;
+}
+
+.section-title {
+    font-weight: 700;
+    color: #374151;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.input-box {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    background: #f9fafb;
+    font-size: 14px;
+}
+
+.input-box.full {
+    width: 100%;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon span {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+}
+
+.input-icon input {
+    padding-left: 30px;
+}
+
+.goal-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: #f9fafb;
+    cursor: pointer;
+}
+
+.goal-box input {
+    width: 16px;
+    height: 16px;
+}
+
+.goal-box.active {
+    border-color: #5a8dee;
+    background: #eef4ff;
+}
+
+.goal-box span {
+    font-size: 14px;
+}
+
+.ad-section {
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.section-title {
+    font-weight: 700;
+    color: #374151;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.input-box {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    outline: none;
+}
+
+.textarea-box {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+
+    border-radius: 15px;
+    border: 1px solid #d1d5db;
+
+    background: #f9fafb;
+    resize: none;
+}
+
+.upload-section {
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.upload-card {
+    border: 2px dashed #d1d5db;
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-card i {
+    font-size: 28px;
+    color: #9ca3af;
+    margin-bottom: 10px;
+}
+
+.upload-title {
+    font-size: 14px;
+    margin: 0;
+}
+
+.upload-sub {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.upload-card:hover {
+    border-color: #5a8dee;
+    background: #f1f5ff;
+}
+
+.participant-section {
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.section-title {
+    font-weight: 700;
+    color: #374151;
+}
+
+.add-link {
+    color: #ff9800;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.participant-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px;
+    border-radius: 12px;
+
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.participant-card .icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+    background: #eef2f7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.role {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.participant-add {
+    height: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+
+    color: #9ca3af;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 20px;
+}
+
+.cancel-btn {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 1px solid #d1d5db;
+    background: #f3f4f6;
+    color: #374151;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.save-btn {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: #e48c06;
+}
+
+.cancel-btn:hover {
+    background: #e5e7eb;
+}
 .all-listing-box{
           background: #ffffff;
     border-radius: 6px !important;
