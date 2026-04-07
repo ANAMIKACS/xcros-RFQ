@@ -1,0 +1,85 @@
+<div class="section">
+    <div class="container body-container">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <div class="left-img desktop-img">
+                    <img src="/Categoty/desktop-img.png" class="building-img">
+                </div>
+                <div class="mobile-img">
+                <img src="/Categoty/mobile-img.png" alt="mobile building">
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-8">
+                <h1 class="title text-center">WELCOME TO RFQ</h1>
+                <h2 class="sub-title text-center">Request a Quote and get Quotes for your request!</h2>
+                <p class="description">Please chose a category and fill the form to help us fetch you best quotes from
+                    vendors and offer you a better experience.</p>
+
+                <div class="search-container">
+
+                    <div class="search-inner">
+                        <i class="fa-solid fa-bars menu-icon"></i>
+
+                        <select>
+                            <option>All Categories</option>
+                            <option>Realty</option>
+                            <option>Automobile</option>
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+
+                    </div>
+
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i> SEARCH
+                    </button>
+
+                </div>
+                <div class="row mt-3">
+
+@for (item of categories; track item; let i = $index) {
+  <div class="col-12 col-md-6 mb-3">
+
+    <div class="card-wrapper" [class.active]="selectedIndex === i">
+      <div class="bg-layer">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div class="rfq-card">
+
+        <div class="left-section">
+          <div class="icon-box">
+            <i [class]="item.icon"></i>
+          </div>
+
+          <div>
+            <h5>{{ item.name }}</h5>
+            <p>{{ item.type }}</p>
+          </div>
+        </div>
+
+        <div class="arrow" (click)="selectCard(i)">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+
+        <div class="stats">
+          <div>Views: {{ item.stats.views }}</div>
+          <div>RFQ: {{ item.stats.rfq }}</div>
+          <div>Replies: {{ item.stats.replies }}</div>
+          <div>Participants: {{ item.stats.participants }}</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+}
+                </div>
+                <button class="continue-btn">Continue</button>
+            </div>
+           
+        </div>
+    </div>
+</div>
