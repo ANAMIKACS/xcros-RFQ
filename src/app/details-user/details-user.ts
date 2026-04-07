@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 export class DetailsUser {
 //RFQ
 
-
+userName: string = 'Andy';
 isRfqBoxOpen = true;
 activeSection = 'listing';
 
