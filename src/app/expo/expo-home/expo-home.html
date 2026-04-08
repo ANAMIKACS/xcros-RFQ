@@ -1,0 +1,23 @@
+<section class="hero-section">
+<div class="hero">
+  @for (img of images; track img; let i = $index) {
+    <div 
+      class="hero-img"
+      [class.active]="i === currentIndex"
+      [style.backgroundImage]="'url(' + img + ')'"
+    ></div>
+  }
+  <div class="hero-content">
+    <h1>Explore Our Exciting XPO Lineup!</h1>
+    <p>Welcome to our vibrant XPO hub, where enthusiasm meets endless possibilities!</p>
+  </div>
+  <div class="calender-btn">
+    <div class="d-flex justify-content-between align-items-center">
+        <i class="fa-regular fa-calendar"></i>
+        <P class="m-0">EXPO Calender</P>
+    </div>
+  </div>
+ 
+</div>
+</section>
+

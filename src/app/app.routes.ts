@@ -20,6 +20,8 @@ import { AdminMatches } from './admin/matches/matches';
 import { AdminCampaigns } from './admin/campaigns/campaigns';
 
 import { RfqCategory } from './rfq-category/rfq-category';
+import { ExpoHome } from './expo/expo-home/expo-home';
+
 export const routes: Routes = [
   { path:'rfqform', component:RfqForm },
   { path:'rfqlisting', component:RfqListing },
@@ -54,4 +56,10 @@ export const routes: Routes = [
     ]
   },
   {path:'rfqCategory', component:RfqCategory},
+  {path: 'expo',
+  children: [
+    { path: '', component: ExpoHome },
+  ]
+}
+
 ];
