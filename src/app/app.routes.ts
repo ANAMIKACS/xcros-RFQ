@@ -25,6 +25,7 @@ import { ExpoHome } from './expo/expo-home/expo-home';
 import { ExpoDetails } from './expo/expo-details/expo-details';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'rfqform', pathMatch: 'full' },
   {path:'rfqform', component:RfqForm},
   {path:'rfqlisting', component:RfqListing},
  {
@@ -62,6 +63,7 @@ export const routes: Routes = [
     { path: '', component: ExpoHome },
     { path: 'expodetails', component: ExpoDetails}
   ]
-}
+},
+  { path: '**', redirectTo: 'rfqform' }
 
 ];

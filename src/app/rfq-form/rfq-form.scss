@@ -1,5 +1,10 @@
 .form{
   padding: 0 !important;
+  min-height: 100vh;
+
+  > .row {
+    min-height: 100vh;
+  }
 
   .left-image{
     height: 100%;
@@ -138,6 +143,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  min-height: 100vh;
   background: #fff;
 }
 
@@ -147,6 +153,7 @@
   flex-direction: column;
   flex: 1;
   height: 100%;
+  min-height: 100%;
 }
 
 // ── Step list bar ──────────────────────────────────────
@@ -244,6 +251,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 ::ng-deep .custom-stepper .p-step-panel {
@@ -251,6 +259,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 0;
 }
 
 .panel-content {
@@ -258,7 +267,8 @@
   padding: 1.5rem 2rem;
   overflow-y: auto;
   scrollbar-width: none;
-  height: 680px;
+  min-height: 0;
+  height: auto;
 }
 
 .panel-title {
@@ -375,6 +385,9 @@
   width: 100%;
   height: 56px;
   margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
 
   .btn-prev {
     flex: 1;
@@ -538,6 +551,65 @@
 }
 
 @media (max-width: 768px) {
+  > .row {
+    min-height: auto;
+  }
+
+  ::ng-deep .custom-stepper .p-stepper-list {
+    padding: 0.75rem 0.5rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  ::ng-deep .custom-stepper .p-step::after {
+    width: 20px;
+    margin: 0 4px;
+  }
+
+  .custom-step-content {
+    padding: 8px;
+  }
+
+  .custom-step-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .custom-step-circle i {
+    font-size: 13px;
+  }
+
+  .custom-step-label {
+    display: none;
+  }
+
+  .grid-row,
+  .form-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .plot-btn, .individual-btn, .villa-btn, .Apartment-btn {
+    width: 100%;
+  }
+
+  .bottom-buttons {
+    flex-direction: row !important;
+    height: 56px !important;
+  }
+
+  .bottom-buttons .btn-prev,
+  .bottom-buttons .btn-next {
+    width: 50%;
+  }
+
   .form-container {
     padding: 32px 24px;
   }
