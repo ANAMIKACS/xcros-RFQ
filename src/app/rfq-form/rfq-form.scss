@@ -2,7 +2,7 @@
   padding: 0 !important;
 
   .left-image{
-    height: 90%;
+    height: 100%;
     width: 100%;
     object-fit:fill;
   }
@@ -234,13 +234,12 @@
   color: #008080;
 }
 
-// Connector teal when completed/active
+
 ::ng-deep .custom-stepper .p-step-completed::after,
 ::ng-deep .custom-stepper .p-step-active::after {
   background: #008080 !important;
 }
 
-// ── Panel content area ─────────────────────────────────
 ::ng-deep .custom-stepper .p-step-panels {
   flex: 1;
   display: flex;
@@ -259,7 +258,7 @@
   padding: 1.5rem 2rem;
   overflow-y: auto;
   scrollbar-width: none;
-  height: 660px;
+  height: 680px;
 }
 
 .panel-title {
@@ -269,7 +268,7 @@
   margin-bottom: 1.2rem;
 }
 
-// ── Fields ────────────────────────────────────────────
+// ── Fields
 .field-row {
   display: flex;
   flex-direction: row;
@@ -312,22 +311,24 @@
   margin-left: 6%;
 }
 
-// ── Radio group ───────────────────────────────────────
+// ── Radio group
+
 .radio-row {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 2rem;
-  align-items: flex-start;
+  padding: 15px 20px;
 
-  .row-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #444;
-    white-space: nowrap;
-    min-width: 60px;
-    padding-top: 4px;
-  }
 }
+
+.row-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
 
 .radio-group {
   display: flex;
@@ -339,37 +340,35 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
-  input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #f5a623;
-    cursor: pointer;
-  }
-
-  label {
-    font-size: 13px;
-    color: #333;
-    cursor: pointer;
-  }
 }
 
-// ── Terms row ─────────────────────────────────────────
+.radio-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f5a623;
+  cursor: pointer;
+}
+
+/* Label text */
+.radio-item label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
 .terms-row {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 1.5rem;
   margin-top: 0.5rem;
-
-  label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #444;
-  }
 }
 
-// ── Bottom buttons ────────────────────────────────────
+.terms-row label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+
 .bottom-buttons {
   display: flex;
   flex-direction: row;
@@ -410,13 +409,13 @@
 
 //personal
 
-/* Main Card */
+
 .bg-white {
   border-radius: 24px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
 }
 
-/* ====================== STEPPER ====================== */
+
 :host ::ng-deep .figma-stepper .p-stepper-header {
   padding: 28px 40px 20px;
   background: white;
@@ -437,7 +436,6 @@
   font-size: 24px;
 }
 
-/* Form Container */
 .form-container {
   padding: 48px 52px 60px;
 }
@@ -495,14 +493,13 @@
   outline: none;
 }
 
-/* Grid for State, City, Pincode */
+
 :host ::ng-deep .p-inputtext {
   height: 56px !important;
   border-radius: 14px !important;
   background-color: #f9fafb !important;
 }
 
-/* Buttons */
 :host ::ng-deep .p-button {
   border-radius: 14px;
   padding: 12px 32px;
@@ -522,8 +519,24 @@
   padding: 2px 20px;
   border-radius: 5px;
 }
+//property
 
-/* Responsive */
+.buttons{
+  display: flex;
+  gap: 30px;
+
+
+}
+.plot-btn, .individual-btn, .villa-btn, .Apartment-btn{
+    border: 1px solid #008080;
+  border-radius: 5px;
+  width: 200px
+}
+.plot-btn:active, .Apartment-btn:active, .villa-btn:active, .individual-btn:active{
+  background-color: #FF9800;
+    border: 1px solid #008080;;
+}
+
 @media (max-width: 768px) {
   .form-container {
     padding: 32px 24px;

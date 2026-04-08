@@ -122,8 +122,10 @@
                 <div class="divider"></div>
 
                 <div class="radio-row">
+
                   <label class="row-label">Date</label>
-                  <div class="radio-group">
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
                     <div class="radio-item">
                       <input type="radio" id="friends" name="source" value="Friends/Relatives">
                       <label for="friends">Friends/Relatives</label>
@@ -140,6 +142,8 @@
                       <input type="radio" id="website" name="source" value="Website">
                       <label for="website">Website</label>
                     </div>
+
+
                     <div class="radio-item">
                       <input type="radio" id="digital" name="source" value="Digital AD">
                       <label for="digital">Digital AD</label>
@@ -149,7 +153,10 @@
                       <label for="others">Others</label>
                     </div>
                   </div>
-                </div>
+
+
+                  </div>
+
 
                 <div class="divider"></div>
 
@@ -247,7 +254,7 @@
                   }
                   <div class="form-group d-flex flex-row gap-3">
                     <label class="form-label">Property Type</label>
-                    <div class="buttons d-flex flex-row justify-content-evenly">
+                    <div class="buttons d-flex flex-row justify-content-evenly mb-4">
                       <button class="plot-btn btn" (click)="plot()">Plot</button>
                       <button class="Apartment-btn btn" (click)="apartment()">Apartment</button>
                       <button class="villa-btn btn" (click)="villa()">Villa</button>
@@ -348,6 +355,120 @@
                   </div>
 
                     }
+                    <div class="divider"></div>
+
+                    <div class="radio-row">
+
+  <label class="row-label">Purpose</label>
+
+  <div class="radio-group">
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="own-use">
+      <span class="custom-radio"></span>
+      Own Use
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="investment">
+      <span class="custom-radio"></span>
+      Investment
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="rental-income">
+      <span class="custom-radio"></span>
+      Rental Income
+    </label>
+
+  </div>
+
+</div>
+                    <div class="divider"></div>
+
+                     <div class="radio-row">
+
+                  <label class="row-label">Parking</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">Two-wheeler</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">Four- wheeler</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+                    <div class="divider"></div>
+
+
+                @for (field of budjetFields; track field.label) {
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">{{ field.label }}</label>
+                    <input
+                      pInputText
+                      type="{{ field.type }}"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  }
+
+                   <div class="radio-row">
+
+                  <label class="row-label">Do you
+Require Loan?</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">No</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+                    <div class="radio-row">
+
+                  <label class="row-label">Preferred
+Location</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">State</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">City</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                     @for (field of locationFields; track field.label) {
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">{{ field.label }}</label>
+                    <input
+                      pInputText
+                      type="{{ field.type }}"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  }
+
+
+
               </div>
               <div class="bottom-buttons">
                 <button class="btn-prev" (click)="activateCallback(2)">

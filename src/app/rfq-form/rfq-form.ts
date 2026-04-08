@@ -113,31 +113,43 @@ simpleFields = [
     {label: 'Property', type: 'text'},
 
   ]
-   isplotopen = false;
-  isapartmentopen = false;
-  isvillaopen = false;
-  isindividualopen = false;
-  plot(): void {
-    this.isplotopen = true;
-    this.isapartmentopen = false;
-    this.isvillaopen = false;
-  }
+  budjetFields = [
+    {label: 'budjet', type: 'text'},
+    {label: 'Have Soon?', type: 'text'},
+  ]
+  locationFields=[
+     {label: 'Locations', type: 'text'},
+    {label: 'Amenities', type: 'text'},
+  ]
+  isplotopen = false;
+isapartmentopen = false;
+isvillaopen = false;
+isindividualopen = false;
 
-  apartment(): void {
-    this.isplotopen = false;
-    this.isapartmentopen = true;
-    this.isvillaopen = false;
-  }
+resetAll() {
+  this.isplotopen = false;
+  this.isapartmentopen = false;
+  this.isvillaopen = false;
+  this.isindividualopen = false;
+}
 
-  villa(): void {
-    this.isplotopen = false;
-    this.isapartmentopen = false;
-    this.isvillaopen = true;
-  }
-  individual(){
-    this.isindividualopen = true;
-    this.isapartmentopen = false;
-    this.isplotopen = false;
+plot() {
+  this.resetAll();
+  this.isplotopen = true;
+}
 
-  }
+apartment() {
+  this.resetAll();
+  this.isapartmentopen = true;
+}
+
+villa() {
+  this.resetAll();
+  this.isvillaopen = true;
+}
+
+individual() {
+  this.resetAll();
+  this.isindividualopen = true;
+}
 }
