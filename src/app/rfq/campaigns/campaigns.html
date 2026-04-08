@@ -1,129 +1,222 @@
 <div class="campaign-section">
-<div class="row">
-
-  <!-- ACTIVITY GRAPH -->
-  <div class="col-lg-6 mb-3">
-    <div class="graph-card">
-      <div class="graph-header">
-        <h5>Activity Graph</h5>
-
-        <div class="toggle">
-          <span>Daily</span>
-          <span>Weekly</span>
-          <span class="active">Monthly</span>
+  <div class="row">
+    <div class="col-lg-6 mb-3">
+      <div class="graph-card">
+        <div class="graph-header">
+          <h5>Activity Graph</h5>
         </div>
+        <div id="activityChart" style="height:300px;"></div>
       </div>
+    </div>
 
-      <div id="activityChart" style="height:300px;"></div>
+    <div class="col-lg-6 mb-3">
+      <div class="graph-card">
+        <div class="graph-header">
+          <h5>Performance Graph</h5>
+        </div>
+        <div id="performanceChart" style="height:300px;"></div>
+      </div>
     </div>
   </div>
 
-  <!-- PERFORMANCE GRAPH -->
-  <div class="col-lg-6 mb-3">
-    <div class="graph-card">
-      <div class="graph-header">
-        <h5>Performance Graph</h5>
-
-        <div class="toggle">
-          <span>Daily</span>
-          <span>Weekly</span>
-          <span class="active">Monthly</span>
-        </div>
-      </div>
-
-      <div id="performanceChart" style="height:300px;"></div>
-    </div>
+  <div class="campaign-header d-flex justify-content-between align-items-center">
+    <p class="m-0">Campaign Listings</p>
   </div>
 
-</div>
-  <div class="campaign-header">
-    Campaign Listings
-  </div>
-<div class="campaign-body card">
+  <div class="campaign-body card">
 
-  @for (item of campaigns; track item) {
+    @for (item of campaigns; track item) {
+    <div class="campaign-card card">
 
-  <div class="campaign-card card">
+      <div class="left">
+        <span class="tag">#{{ item.id }}</span>
+        <h5 class="title">Campaign Title for RFQ</h5>
 
-    <!-- LEFT -->
-    <div class="left">
-
-      <span class="tag">#{{ item.id }}</span>
-
-      <h5 class="title">Campaign Title for RFQ</h5>
-
-      <p class="date">
-        <i class="fa-solid fa-calendar"></i>
-        Start Date {{ item.start }} -
-        <i class="fa-solid fa-calendar"></i>
-        End Date {{ item.end }}
-      </p>
-
-    </div>
-
-    <!-- MIDDLE -->
-    <div class="middle">
-
-      <div class="box d-flex justify-content-between">
-        <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-           <i class="fa-solid fa-dollar-sign"></i>
-        <p class="m-0">Budget</p>
-        </div>
-        <b>₹{{ item.budget }}</b>
+        <p class="date">
+          <i class="fa-solid fa-calendar"></i>
+          Start Date {{ item.start }} -
+          <i class="fa-solid fa-calendar"></i>
+          End Date {{ item.end }}
+        </p>
       </div>
 
-      <div class="box d-flex justify-content-between">
-        <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-            <i class="fa-solid fa-folder-open"></i>
-        <p class="m-0">RFQs</p>
+      <div class="middle">
+        <div class="box d-flex justify-content-between align-items-center">
+          <p class="m-0">Budget</p>
+          <b>₹{{ item.budget }}</b>
         </div>
-        
-        <b>{{ item.rfq }}+</b>
+
+        <div class="box d-flex justify-content-between">
+          <p class="m-0">RFQs</p>
+          <b>{{ item.rfq }}+</b>
+        </div>
       </div>
 
-    </div>
-
-    <div class="right">
-
-      <div class="gradient-box d-flex justify-content-between">
-        <div class="d-flex justify-content-center align-items-center gap-2">
-             <i class="fa-solid fa-coins"></i>
-        <p class="m-0">Cost Per Reach</p>
+      <div class="right">
+        <div class="gradient-box d-flex justify-content-between">
+          <p>Cost Per Reach</p>
+          <b>₹{{ item.reach }}</b>
         </div>
-        <b>₹{{ item.reach }}</b>
+
+        <div class="gradient-box d-flex justify-content-between">
+          <p>Click Through rate</p>
+          <b>₹{{ item.ctr }}</b>
+        </div>
       </div>
 
-      <div class="gradient-box d-flex justify-content-between">
-        <div class="d-flex justify-content-center align-items-center gap-2">
-             <i class="fa-solid fa-chart-line"></i>
-        <p class="m-0">Click Through rate</p>
-        </div>
-       
-        <b>₹{{ item.ctr }}</b>
+      <div class="side">
+        <span class="status">Status: In Progress</span>
+        <div>Views : {{ item.views }}</div>
+        <div>Interests : {{ item.interests }}</div>
       </div>
 
     </div>
+    }
 
-    <!-- SIDE -->
-    <div class="side">
-
-      <span class="status">Status: In Progress</span>
-
-      <div class="end">
-        <i class="fa-solid fa-eye"></i>
-        Views : {{ item.views }}
-      </div>
-
-      <div class="end">
-        <i class="fa-solid fa-heart"></i>
-        Interests : {{ item.interests }}
-      </div>
-
-    </div>
-
-  </div>
-
-  }
   </div>
 
 </div>
+  <div class="row">
+
+            <div class="col-12 col-lg-4 pt-3">
+  <div class="all-listing-box">
+
+    <div class="listing-box-header" (click)="toggleMedia()">
+      <p class="listing-title">Media Performance</p>
+      <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+    </div>
+
+    @if (isMediaOpen) {
+    <div class="media-body">
+      <div id="donutChart" class="chart"></div>
+      <div class="legend">
+        @for (item of chartData; track item) {
+          <div class="legend-item  d-flex align-items-center px-3">
+            <span class="dot" [style.background]="item.color"></span>
+            <span class="label">{{ item.name }}</span>
+            <span class="value">{{ item.value }}</span>
+          </div>
+        }
+      </div>
+
+    </div>
+    }
+
+  </div>
+</div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleCampaignGoal()">
+                  <p class="listing-title">Campaign Goal</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isCampaignGoalOpen"></i>
+                </div>
+
+                @if (isCampaignGoalOpen) {
+                <div class="media-body">
+                    <div class="hashvalue m-2">
+                        <p class="m-0">#102030</p>
+                    </div>
+                    <div class="details px-3">
+                        <div class="date-details d-flex justify-content-between align-items-center mb-2">
+                           <div class="date d-flex flex-row align-items-center gap-2">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <p class="m-0">Date:</p>
+                           </div> 
+                            <p class="m-0">January 20, 2026</p>
+                        </div>
+                         <div class="budget-details d-flex justify-content-between align-items-center mb-2">
+                           <div class="date d-flex flex-row align-items-center gap-2">
+                           <i class="fa-solid fa-dollar-sign"></i>
+                            <p class="m-0">Budget</p>
+                           </div> 
+                            <p class="m-0">₹10,000 - ₹20,000</p>
+                        </div>
+                         <div class="date-details d-flex justify-content-between align-items-center mb-2">
+                           <div class="date d-flex flex-row align-items-center gap-2">
+                           <i class="fa-solid fa-users"></i>
+                            <p class="m-0">Participants</p>
+                           </div> 
+                            <p class="m-0">January 20, 2026</p>
+                        </div>
+                    </div>
+                   <div class="card-body p-0">
+                    <div class="p-3">
+                        <div class="instagram">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p class="app-name m-0">Instagram</p>
+                        </div>
+                    </div>
+                    
+                     <div class="facebook mt-2">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-facebook"></i>
+                            <p class="app-name m-0">Facebook</p>
+                        </div>
+                    </div>
+
+                     <div class="twitter mt-2">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-twitter"></i>
+                            <p class="app-name m-0">Twitter (X)</p>
+                        </div>
+                    </div>
+
+                     <div class="Pinterest mt-2">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-pinterest"></i>
+                            <p class="app-name m-0">Pinterest</p>
+                        </div>
+                    </div>
+
+                     <div class="linkedin mt-2">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <p class="app-name m-0">Linkedin</p>
+                        </div>
+                    </div>
+
+                     <div class="youtube mt-2">
+                        <div class="social-medias d-flex flex-row align-items-center gap-3">
+                            <i class="fa-brands fa-youtube"></i>
+                            <p class="app-name m-0">Youtube</p>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+                </div>
+                }
+
+              </div>
+            </div>
+
+                        <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleStatistics()">
+                  <p class="listing-title">Campaign Statistics</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
+                </div>
+
+                @if (isStatisticsOpen) {
+                <div class="statistics-body p-2">
+
+                  @for(stat of statistics; track stat){
+                  <div class="stat-item mb-2">
+                    <div class="statistics-box d-flex justify-content-between">
+                      <p class="m-0">{{ stat.title }}</p>
+                      <p class="m-0">{{ stat.value }}</p>
+                    </div>
+                  </div>
+                  }
+
+                </div>
+                }
+
+              </div>
+            </div>
+
+          </div>

@@ -84,4 +84,39 @@ openPopup(type: string) {
 closePopup() {
   this.activePopup = null;
 }
+selectedFileName: string = '';
+
+onFileSelect(event: any) {
+  const file = event.target.files[0];
+  this.selectedFileName = file ? file.name : '';
+}
+
+//Media box
+  isMediaOpen = false;
+toggleMedia() {
+  this.isMediaOpen = !this.isMediaOpen;
+}
+ marketingItems = [
+    'Digital Marketing',
+    'SMS',
+    'Whatsapp',
+    'Email',
+    'Calls',
+    'Print',
+    'Social Media Marketing',
+    'Influencer marketing'
+  ];
+  //Statistics box
+  isStatisticsOpen = false;
+toggleStatistics() {
+  this.isStatisticsOpen = !this.isStatisticsOpen;
+}
+statistics = [
+    { title: 'Campaigns', value: 0 },
+    { title: 'Users', value: 0 },
+    { title: 'Posts', value: 0 },
+    { title: 'Seller Replies', value: 0 },
+    { title: 'User Replies', value:0},
+    { title: 'tags', value:0},
+  ];
 }

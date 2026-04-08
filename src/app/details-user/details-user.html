@@ -1,11 +1,12 @@
-<section class="bg"></section>
+<section class="bg">
+
+</section>
 
 <section class="main-section">
   <div class="details-section">
     <div class="row">
 
       <div class="col-12 col-lg-3">
-
         <div class="card profile-card text-center p-3">
           <div class="profile-icons">
             <i class="fa-solid fa-rotate-right left-icon"></i>
@@ -13,7 +14,7 @@
           </div>
           <img src="/DetailsUser/profile-img.png" class="profile-img">
 
-          <p class="profile-name">Andy</p>
+          <p class="profile-name">{{ userName }}</p>
           <p class="date m-0">
             <i class="fa-solid fa-calendar"></i> Joined on Nov 26, 2024
           </p>
@@ -71,19 +72,48 @@
               <span class="circle"></span> Campaigns
             </div>
 
+            <div class="menu-section mt-2">
+
+          <div class="menu-item">
+            <p class="m-0">SHOPPING</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">ACCOUNT</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">ADD LISTINGS</p>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">LISTING NAME</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+        </div>
+
           </div>
           }
 
         </div>
-
-      </div>
+   </div>
 
       <div class="col-12 col-lg-9">
 
+       <div class="greeting px-3">
+        <h4 class="naame m-0">Howdy, {{ userName }}!</h4>
+        <p class="breadcrumb m-0">Home  Dashboard</p>
+      </div>
+
+    
         <div class="edit-profile d-flex justify-content-between p-3">
-          <div class="left-details text-center">
-            <p class="m-0">21</p>
-            <p class="m-0">Views</p>
+          
+          <div class="left-details text-center px-3">
+            <p class="count m-0">21</p>
+            <p class="views m-0">Views</p>
           </div>
 
           <div class="right-details d-flex align-items-center gap-2">
@@ -123,76 +153,7 @@
             </div>
           </div>
           <router-outlet></router-outlet>
-          <div class="row">
-            <div class="col-12 col-lg-4 pt-3">
-              <div class="all-listing-box">
-
-                <div class="listing-box-header" (click)="toggleStatistics()">
-                  <p class="listing-title">Statistics</p>
-                  <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
-                </div>
-
-                @if (isStatisticsOpen) {
-                <div class="statistics-body p-2">
-
-                  @for(stat of statistics; track stat){
-                  <div class="stat-item mb-2">
-                    <div class="statistics-box d-flex justify-content-between">
-                      <p class="m-0">{{ stat.title }}</p>
-                      <p class="m-0">{{ stat.value }}</p>
-                    </div>
-                  </div>
-                  }
-
-                </div>
-                }
-
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-4 pt-3">
-              <div class="all-listing-box">
-
-                <div class="listing-box-header" (click)="toggleMedia()">
-                  <p class="listing-title">Media</p>
-                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
-                </div>
-
-                @if (isMediaOpen) {
-                <div class="media-body">
-                  @for (item of marketingItems; track item; let last = $last) {
-                  <p class="px-4 mt-3">{{ item }}</p>
-                  @if (!last) {
-                  <hr> }
-                  }
-                </div>
-                }
-
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-4 pt-3">
-              <div class="all-listing-box">
-
-                <div class="listing-box-header" (click)="toggleMedia()">
-                  <p class="listing-title">Media</p>
-                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
-                </div>
-
-                @if (isMediaOpen) {
-                <div class="media-body">
-                  @for (item of marketingItems; track item; let last = $last) {
-                  <p class="px-4 mt-3">{{ item }}</p>
-                  @if (!last) {
-                  <hr> }
-                  }
-                </div>
-                }
-
-              </div>
-            </div>
-
-          </div>
+        
 
         </div>
 

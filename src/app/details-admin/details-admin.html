@@ -1,0 +1,157 @@
+
+<section class="bg"></section>
+
+<section class="main-section">
+  <div class="details-section">
+    <div class="row">
+
+      <div class="col-12 col-lg-3">
+
+        <div class="card profile-card text-center p-3">
+          <div class="profile-icons">
+            <i class="fa-solid fa-rotate-right left-icon"></i>
+            <i class="fa-solid fa-sun right-icon"></i>
+          </div>
+          <img src="/DetailsUser/profile-img.png" class="profile-img">
+
+          <p class="profile-name">Andy</p>
+          <p class="date m-0">
+            <i class="fa-solid fa-calendar"></i> Joined on Nov 26, 2024
+          </p>
+          <p class="profile-title m-0">Profile Score</p>
+          <p class="percentage m-0">87%</p>
+          <hr>
+          <p class="location m-0">CHENNAI - 600001</p>
+        </div>
+        <div class="buttons d-flex">
+
+          <div class="user-btn">
+            User
+          </div>
+
+          <div class="business-btn">
+            Business
+          </div>
+
+        </div>
+        <div class="RFQ mt-3">
+
+          <div class="header d-flex justify-content-between" (click)="toggleRfqOpen()">
+            <p class="rfqtitle m-0">RFQ</p>
+            <i class="fa-solid fa-chevron-down" [class.rotate]="isRfqBoxOpen"></i>
+          </div>
+
+          @if (isRfqBoxOpen) {
+          <div class="rfq-card">
+
+            <div class="rfq-item" routerLink="listing" routerLinkActive="active">
+              <span class="circle"></span> Listings
+            </div>
+
+            <div class="rfq-item" routerLink="general" routerLinkActive="active">
+              <span class="circle"></span> General Details
+            </div>
+
+            <div class="rfq-item" routerLink="personal" routerLinkActive="active">
+              <span class="circle"></span> Personal Details
+            </div>
+
+            <div class="rfq-item" routerLink="property" routerLinkActive="active">
+              <span class="circle"></span> Property Details
+            </div>
+
+            <div class="rfq-item" routerLink="replies" routerLinkActive="active">
+              <span class="circle"></span> Replies
+            </div>
+
+            <div class="rfq-item" routerLink="matches" routerLinkActive="active">
+              <span class="circle"></span> Matches
+            </div>
+
+            <div class="rfq-item" routerLink="campaigns" routerLinkActive="active">
+              <span class="circle"></span> Campaigns
+            </div>
+
+            <div class="menu-section mt-2">
+
+          <div class="menu-item">
+            <p class="m-0">SHOPPING</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">ACCOUNT</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">ADD LISTINGS</p>
+          </div>
+
+          <div class="menu-item">
+            <p class="m-0">LISTING NAME</p>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+        </div>
+
+          </div>
+          }
+
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-9">
+
+        <div class="edit-profile d-flex justify-content-between p-3">
+          <div class="left-details text-center px-3">
+            <p class="count m-0">21</p>
+            <p class="views m-0">Views</p>
+          </div>
+
+          <div class="right-details d-flex align-items-center gap-2">
+            <p class="text-white m-0">
+              Edit Profile <i class="fa-regular fa-pen-to-square"></i>
+            </p>
+            <div class="hr-line"></div>
+            <i class="glass fa-solid fa-magnifying-glass"></i>
+            <i class="sliders fa-solid fa-sliders"></i>
+          </div>
+        </div>
+
+        <div class="card features-card">
+
+          <div class="features-container py-3">
+            <div class="row g-3">
+
+              @for (item of dashboardData; track item) {
+              <div class="col-12 col-md-3">
+
+                <div class="info-card d-flex justify-content-between">
+
+                  <div class="info-icon">
+                    <img [src]="item.icon">
+                  </div>
+
+                  <div>
+                    <div class="info-value">{{ item.value }}</div>
+                    <p>{{ item.title }}</p>
+                  </div>
+
+                </div>
+
+              </div>
+              }
+
+            </div>
+          </div>
+          <router-outlet></router-outlet>
+        
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

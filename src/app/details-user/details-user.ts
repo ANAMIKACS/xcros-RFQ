@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-details-user',
   imports: [RouterModule],
@@ -9,6 +10,8 @@ import { RouterModule } from '@angular/router';
 })
 export class DetailsUser {
 //RFQ
+
+userName: string = 'Andy';
 isRfqBoxOpen = true;
 activeSection = 'listing';
 

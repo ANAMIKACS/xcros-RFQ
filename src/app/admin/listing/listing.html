@@ -1,0 +1,343 @@
+<div class="listing-section-header">
+
+    <p class="m-0">Listings</p>
+
+    <div class="d-flex gap-2">
+
+        <input type="date" class="filter-input" [(ngModel)]="selectedDate">
+        <div class="custom-dropdown" (click)="toggleDropdown()">
+
+            <div class="selected">
+                {{ selectedCategory || 'All Categories' }}
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+            @if (isDropdownOpen) {
+            <div class="dropdown-menu">
+
+                <div class="dropdown-item" (click)="selectCategory('')">
+                    All Categories
+                </div>
+
+                @for (cat of categories; track cat) {
+                <div class="dropdown-item" (click)="selectCategory(cat)">
+                    {{ cat }}
+                </div>
+                }
+
+            </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>
+<div class="listing-section">
+
+    @for (item of listings; track item) {
+    <div class="listing-card gap-3">
+
+        <div class="listing-left">
+            <img [src]="item.image">
+            <p class="user-name">{{ item.user }}</p>
+            <p class="date"><i class="fa fa-calendar"></i> {{ item.date }}</p>
+        </div>
+        <div class="v-line"></div>
+        <div class="listing-middle">
+            <p><span class="title">Property Type:</span> {{ item.type }}</p>
+            <p><span class="title">Property City:</span> {{ item.city }}</p>
+            <p><span class="title">Property Location:</span> {{ item.location }}</p>
+            <p><span class="title">Loan Required:</span> {{ item.loan }}</p>
+            <p><span class="title">Loan % Required:</span> {{ item.loanPercent }}</p>
+        </div>
+        <div class="v-line"></div>
+        <div class="listing-description">
+            <span class="badge">Wanted</span>
+            <p class="descrp">{{description}}</p>
+        </div>
+        <div class="v-line"></div>
+        <div class="listing-right d-flex justify-content-center align-items-center flex-column">
+            <div class="stats-box ">
+                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                    <div class="m-0 d-flex flex-row gap-2">
+                        <i class="fa-solid fa-eye d-flex align-items-center"></i>
+                        <p class="m-0">Views:</p>
+                    </div>
+                    <p class="m-0">100+</p>
+                </div>
+                <hr>
+                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                    <div class="m-0 d-flex flex-row gap-2">
+                        <i class="fa-solid fa-envelope d-flex align-items-center"></i>
+                        <p class="m-0">Replies</p>
+                    </div>
+                    <p class="m-0">100+</p>
+                </div>
+                <hr>
+                <div class="d-flex flex-row gap-2 align-items-center justify-content-between">
+                    <div class="m-0 d-flex flex-row gap-2">
+                        <i class="fa-solid fa-heart d-flex align-items-center"></i>
+                        <p class="m-0">Interests</p>
+                    </div>
+                    <p class="m-0">100+</p>
+                </div>
+            </div>
+        </div>
+        <div class="v-line"></div>
+        <div class="listing-end">
+            <div class="timer-box">00 : 00 : 00</div>
+            <div class="action-buttons">
+                <div class="d-flex flex-row justify-content-between mb-2 gap-2">
+                    <button class="btn" (click)="openPopup('call')">
+                        <i class="fa fa-phone"></i> Click to Call
+                    </button>
+
+                    <button class="btn" (click)="openPopup('chat')">
+                        <i class="fa fa-comments"></i> Click to Chat
+                    </button>
+                </div>
+
+                <div class="d-flex flex-row justify-content-evenly mb-2 gap-2">
+                    <button class="btn" (click)="openPopup('meeting')">
+                        <i class="fa fa-calendar"></i> Schedule Meeting
+                    </button>
+
+                    <button class="btn" (click)="openPopup('report')">
+                        <i class="fa fa-flag"></i>
+                    </button>
+
+                    <button class="btn" (click)="openPopup('message')">
+                        <i class="fa fa-envelope"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            @if (activePopup === 'report') {
+
+            <div class="report-overlay" (click)="closePopup()">
+
+                <div class="report-modal" (click)="$event.stopPropagation()">
+
+                    <div class="report-header">
+                        <h5>Report Form</h5>
+                        <i class="fa-solid fa-xmark close-btn" (click)="closePopup()"></i>
+                    </div>
+
+                    <div class="report-body">
+
+                        <div class="user-box">
+                            <span class="overlay-user-name">Name of the User</span>
+
+                            <div class="overlay-loc d-flex flex-row gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                            </div>
+
+                        </div>
+
+                        <textarea placeholder="What Do You Want To Report About ..."></textarea>
+
+                        <p class="attach-title">Attachments (Optional)</p>
+
+                        <label class="upload-box">
+                            <input type="file" hidden (change)="onFileSelect($event)">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Upload Photos/videos</span>
+                        </label>
+
+                        <p class="file-name">
+                            {{ selectedFileName || 'No File Chosen' }}
+                        </p>
+
+                        <div class="actions">
+                            <button class="cancel" (click)="closePopup()">Cancel</button>
+                            <button class="submit">
+                                Submit <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            }
+
+            @if (activePopup === 'message') {
+
+            <div class="report-overlay" (click)="closePopup()">
+
+                <div class="report-modal" (click)="$event.stopPropagation()">
+
+                    <div class="report-header">
+                        <h5>Send a Message</h5>
+                        <i class="fa-solid fa-xmark close-btn" (click)="closePopup()"></i>
+                    </div>
+
+                    <div class="report-body">
+
+                        <label class="label">Property Name</label>
+                        <input type="text" class="input-box">
+
+                        <label class="label">Message</label>
+                        <textarea class="textarea-box"></textarea>
+
+                        <div class="upload-btn green">
+                            Upload Company Broucher
+                            <i class="fa-solid fa-upload"></i>
+                            <input type="file" hidden>
+                        </div>
+
+                        <div class="upload-btn orange">
+                            Upload Project Broucher
+                            <i class="fa-solid fa-upload"></i>
+                            <input type="file" hidden>
+                        </div>
+
+                        <button class="submit-btn">
+                            Submit Reply <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            }
+
+            @if (activePopup === 'meeting') {
+
+            <div class="report-overlay" (click)="closePopup()">
+
+                <div class="report-modal" (click)="$event.stopPropagation()">
+
+                    <div class="report-header">
+                        <h5>Schedule a Meeting</h5>
+                        <i class="fa-solid fa-xmark close-btn" (click)="closePopup()"></i>
+                    </div>
+
+                    <div class="report-body">
+
+                        <input class="input-box" placeholder="*Your Name">
+                        <input class="input-box" placeholder="*Mobile Number">
+
+                        <div class="input-with-icon">
+                            <input type="date" class="input-box">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+
+                        <select class="input-box">
+                            <option>Select Time Slot</option>
+                            <option>10:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>03:00 PM</option>
+                        </select>
+
+                        <div class="mode-toggle">
+                            <button class="mode active">In Person</button>
+                            <button class="mode">Chat online</button>
+                        </div>
+
+                        <input class="input-box" placeholder="*Email address">
+                        <input class="input-box" placeholder="*Persons">
+
+                        <textarea class="textarea-box" placeholder="*Your message"></textarea>
+
+                        <div class="meeting-footer">
+                            <button class="submit-btn">
+                                Book visit now <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                            <span class="note">
+                                *This will confirm your Meeting schedule.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            }
+            <button class="view-btn">View Details</button>
+        </div>
+
+    </div>
+    }
+</div>
+  <div class="row">
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleStatistics()">
+                  <p class="listing-title">Statistics</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
+                </div>
+
+                @if (isStatisticsOpen) {
+                <div class="statistics-body p-2">
+
+                  @for(stat of statistics; track stat){
+                  <div class="stat-item mb-2">
+                    <div class="statistics-box d-flex justify-content-between">
+                      <p class="m-0">{{ stat.title }}</p>
+                      <p class="m-0">{{ stat.value }}</p>
+                    </div>
+                  </div>
+                  }
+
+                </div>
+                }
+
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleMedia()">
+                  <p class="listing-title">Media</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                </div>
+
+                @if (isMediaOpen) {
+                <div class="media-body">
+                  @for (item of marketingItems; track item; let last = $last) {
+                  <p class="px-4 mt-3">{{ item }}</p>
+                  @if (!last) {
+                  <hr> }
+                  }
+                </div>
+                }
+
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleMedia()">
+                  <p class="listing-title">Media</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                </div>
+
+                @if (isMediaOpen) {
+                <div class="media-body">
+                  @for (item of marketingItems; track item; let last = $last) {
+                  <p class="px-4 mt-3">{{ item }}</p>
+                  @if (!last) {
+                  <hr> }
+                  }
+                </div>
+                }
+
+              </div>
+            </div>
+
+          </div>

@@ -12,7 +12,7 @@
   <div class="content">
     <h3>{{ item.name }}</h3>
 
-    <div class="date">
+    <div class="date d-flex align-items-center">
       <i class="fa-solid fa-calendar"></i>
       {{ item.date }}
     </div>
@@ -71,3 +71,73 @@
   }
 
 </div>
+  <div class="row">
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleStatistics()">
+                  <p class="listing-title">Statistics</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isStatisticsOpen"></i>
+                </div>
+
+                @if (isStatisticsOpen) {
+                <div class="statistics-body p-2">
+
+                  @for(stat of statistics; track stat){
+                  <div class="stat-item mb-2">
+                    <div class="statistics-box d-flex justify-content-between">
+                      <p class="m-0">{{ stat.title }}</p>
+                      <p class="m-0">{{ stat.value }}</p>
+                    </div>
+                  </div>
+                  }
+
+                </div>
+                }
+
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleMedia()">
+                  <p class="listing-title">Media</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                </div>
+
+                @if (isMediaOpen) {
+                <div class="media-body">
+                  @for (item of marketingItems; track item; let last = $last) {
+                  <p class="px-4 mt-3">{{ item }}</p>
+                  @if (!last) {
+                  <hr> }
+                  }
+                </div>
+                }
+
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-3">
+              <div class="all-listing-box">
+
+                <div class="listing-box-header" (click)="toggleMedia()">
+                  <p class="listing-title">Media</p>
+                  <i class="fa-solid fa-chevron-down" [class.rotate]="isMediaOpen"></i>
+                </div>
+
+                @if (isMediaOpen) {
+                <div class="media-body">
+                  @for (item of marketingItems; track item; let last = $last) {
+                  <p class="px-4 mt-3">{{ item }}</p>
+                  @if (!last) {
+                  <hr> }
+                  }
+                </div>
+                }
+
+              </div>
+            </div>
+
+          </div>
