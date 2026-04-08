@@ -1,12 +1,14 @@
 .form{
   padding: 0 !important;
+
   .left-image{
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit:fill;
   }
   .left-content-image{
     z-index: 9998;
+    height: 100%;
     position: relative;
     padding: 0 !important;
   }
@@ -92,7 +94,9 @@
 
   //second section
   .content{
-    height: 750px !important;
+    height: 700px !important;
+    overflow-y: auto;
+    scrollbar-width: none;
   }
   .icon{
     background-color: #F5F7F8;
@@ -116,7 +120,7 @@
 .divider {
   display: flex;
   align-items: center;
-
+  max-width: 94%;
 }
 
 .line {
@@ -129,54 +133,413 @@
 
 
 //general
-.date,.form{
+// ── Right section wrapper ──────────────────────────────
+.right-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+// ── Stepper container ──────────────────────────────────
+.custom-stepper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+// ── Step list bar ──────────────────────────────────────
+::ng-deep .custom-stepper .p-stepper-list {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #e0e0e0;
+  background: #fff;
+  margin: 0;
+}
+
+::ng-deep .custom-stepper .p-step {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  flex: unset;
+}
+
+::ng-deep .custom-stepper .p-step::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1.5px;
+  background: #d0d0d0;
+  margin: 0 8px;
+}
+
+::ng-deep .custom-stepper .p-step:last-child::after {
+  display: none;
+}
+
+::ng-deep .custom-stepper .p-step-header {
+  display: contents;
+  padding: 0;
+}
+
+// ── Custom step circle + label ─────────────────────────
+.custom-step-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.custom-step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #c8c8c8;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+
+  i {
+    font-size: 16px;
+    color: #6c757d;
+    transition: color 0.2s;
+  }
+}
+
+.custom-step-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+// Teal state
+.custom-step-circle.teal {
+  border-color: #008080;
+  background: #fff;
+
+  i {
+    color: #008080;
+  }
+}
+
+.custom-step-label.teal {
+  color: #008080;
+}
+
+
+::ng-deep .custom-stepper .p-step-completed::after,
+::ng-deep .custom-stepper .p-step-active::after {
+  background: #008080 !important;
+}
+
+::ng-deep .custom-stepper .p-step-panels {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .custom-stepper .p-step-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-content {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: 680px;
+}
+
+.panel-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.2rem;
+}
+
+// ── Fields
+.field-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+    white-space: nowrap;
+    min-width: 60px;
+  }
+
+  input {
+    flex: 1;
+    height: 38px;
+    border: none;
+    border-radius: 4px;
+    background: #f0f4f4;
+    padding: 0 10px;
+    font-size: 13px;
+    outline: none;
+  }
+}
+
+.divider {
   width: 100%;
-  gap: 70px;
-}
-.date p, .form p{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.date-box{
-  background-color: #F5F7F8;
-  border: none;
-  width:100%;
-  height: 60px;
-}
-.hr-line{
-  display: flex;
-  align-self: flex-end;
-  height: 2px;
-  background-color: #F5F7F8;
-  margin-top: 10px;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 1.2rem 0;
+  margin-left: 6%;
 }
 
-.prev-button{
-  width: 50%;
-  background-color: #fecb7f;
-  color: #F5F7F8;
+// ── Radio group
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 15px 20px;
+
+}
+
+.row-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f5a623;
+  cursor: pointer;
+}
+
+/* Label text */
+.radio-item label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+.terms-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.terms-row label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 56px;
+  margin-top: auto;
+
+  .btn-prev {
+    flex: 1;
+    background: #f5c97a;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f0b84e;
+    }
+  }
+
+  .btn-next {
+    flex: 1;
+    background: #008080;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #006666;
+    }
+  }
+}
+
+//personal
+
+
+.bg-white {
+  border-radius: 24px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+:host ::ng-deep .figma-stepper .p-stepper-header {
+  padding: 28px 40px 20px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+:host ::ng-deep .figma-stepper .p-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+:host ::ng-deep .figma-stepper .p-step.p-step-active {
+  color: #14b8a6 !important;
+}
+
+:host ::ng-deep .figma-stepper .p-step i {
+  font-size: 24px;
+}
+
+.form-container {
+  padding: 48px 52px 60px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  margin-bottom: 28px;
+}
+
+.form-label{
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0%;
+  font-weight: 600;
 }
-.next-button{
-  width: 50%;
-  background-color:#008080;
-  color: #F5F7F8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0%;
+.form-input-textarea{
+    width: 100%;
+  height: 150px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  margin-left: 20px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #111827;
 }
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 9px;
+}
+
+.form-input {
+  width: 100%;
+  height: 56px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  margin-left: 20px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #111827;
+}
+
+.form-input:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.08);
+  outline: none;
+}
+
+
+:host ::ng-deep .p-inputtext {
+  height: 56px !important;
+  border-radius: 14px !important;
+  background-color: #f9fafb !important;
+}
+
+:host ::ng-deep .p-button {
+  border-radius: 14px;
+  padding: 12px 32px;
+  font-size: 16px;
+}
+
+:host ::ng-deep .p-button-secondary {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+.sumbit-btn{
+
+  background-color: #FF9800;
+  color: #fff;
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 20px;
+  border-radius: 5px;
+}
+//property
+
 .buttons{
-  height: 70px;
+  display: flex;
+  gap: 30px;
+
+
+}
+.plot-btn, .individual-btn, .villa-btn, .Apartment-btn{
+    border: 1px solid #008080;
+  border-radius: 5px;
+  width: 200px
+}
+.plot-btn:active, .Apartment-btn:active, .villa-btn:active, .individual-btn:active{
+  background-color: #FF9800;
+    border: 1px solid #008080;;
 }
 
-:host ::ng-deep .p-stepper-separator {
-  background-color: #000000 !important;
-  height: 2px !important;
-  width: 100% !important;
+@media (max-width: 768px) {
+  .form-container {
+    padding: 32px 24px;
+  }
 }
 }

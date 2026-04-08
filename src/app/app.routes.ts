@@ -9,6 +9,7 @@ import { Property } from './rfq/property/property';
 import { Replies } from './rfq/replies/replies';
 import { Matches } from './rfq/matches/matches';
 import { Campaigns } from './rfq/campaigns/campaigns';
+import { RfqAdminDetails } from './rfq-admin-details/rfq-admin-details';
 
 import { DetailsAdmin } from './details-admin/details-admin';
 import { AdminListing } from './admin/listing/listing';
@@ -23,10 +24,9 @@ import { RfqCategory } from './rfq-category/rfq-category';
 import { ExpoHome } from './expo/expo-home/expo-home';
 
 export const routes: Routes = [
-  { path:'rfqform', component:RfqForm },
-  { path:'rfqlisting', component:RfqListing },
-
-  {
+  {path:'rfqform', component:RfqForm},
+  {path:'rfqlisting', component:RfqListing},
+ {
     path: 'detailsUser',
     component: DetailsUser,
     children: [

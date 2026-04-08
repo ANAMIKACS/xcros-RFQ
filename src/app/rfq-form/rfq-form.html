@@ -2,17 +2,17 @@
   <div class="row p-0 m-0">
     <!--left content-->
     <div class="col-12 col-lg-4 p-0 m-0">
-  <div class="left-content-image">
+      <div class="left-content-image">
 
-    <img [src]="backgorund" class="left-image" alt="">
+        <img [src]="backgorund" class="left-image" alt="">
 
 
-    <div class="left-content">
-      <div class="container">
-        <p class="main-head">Home Mela Exclusive Benefits</p>
+        <div class="left-content">
+          <div class="container">
+            <p class="main-head">Home Mela Exclusive Benefits</p>
 
-           <div class="row g-3">
-            @for (tab of tabs; track tab) {
+            <div class="row g-3">
+              @for (tab of tabs; track tab) {
               <div class="col-6">
                 <div class="tab">
                   <div class="circle-big"></div>
@@ -23,250 +23,502 @@
                   </div>
                 </div>
               </div>
-            }
-          </div>
-          <div class="g-3">
-            <div class="experience mt-4">
-            <div class="wave-line">
-              <img [src]="waveLine" alt="">
-            </div>
-            <div class="d-flex flex-row  justify-content-evenly">
-              @for (year of years; track year){
-                <div class="d-flex flex-column">
-                  <p class="years m-0">{{year.Expyear}}</p>
-
-                <p class="category">{{year.category}}</p>
-                </div>
-
               }
             </div>
-          </div>
-          </div>
+            <div class="g-3">
+              <div class="experience mt-4">
+                <div class="wave-line">
+                  <img [src]="waveLine" alt="">
+                </div>
+                <div class="d-flex flex-row  justify-content-evenly">
+                  @for (year of years; track year){
+                  <div class="d-flex flex-column">
+                    <p class="years m-0">{{year.Expyear}}</p>
 
+                    <p class="category">{{year.category}}</p>
+                  </div>
+
+                  }
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
 
       </div>
     </div>
-
-  </div>
-</div>
     <!--right-content-->
     <div class="col-12 col-lg-8 p-2 m-0">
-      <!-- <div class="container">
-        <div class="menu p-4">
 
 
- <div class="divider d-flex flex-row justify-content-evenly">
+      <p-stepper [(value)]="activeStep" class="custom-stepper">
+        <p-step-list>
+          <p-step [value]="1">
+            <ng-template #content let-value="value">
+              <div class="custom-step-content">
+                <div class="custom-step-circle" [class.teal]="activeStep >= 1">
+                  <i class="pi pi-users"></i>
+                </div>
+                <span class="custom-step-label" [class.teal]="activeStep >= 1">General</span>
+              </div>
+            </ng-template>
+          </p-step>
 
-  @for (section of sections; track $index; let i = $index) {
+          <p-step [value]="2">
+            <ng-template #content let-value="value">
+              <div class="custom-step-content">
+                <div class="custom-step-circle" [class.teal]="activeStep >= 2">
+                  <i class="pi pi-id-card"></i>
+                </div>
+                <span class="custom-step-label" [class.teal]="activeStep >= 2">Personal</span>
+              </div>
+            </ng-template>
+          </p-step>
 
-    <div class="menu-item d-flex flex-row gap-4">
+          <p-step [value]="3">
+            <ng-template #content let-value="value">
+              <div class="custom-step-content">
+                <div class="custom-step-circle" [class.teal]="activeStep >= 3">
+                  <i class="pi pi-building"></i>
+                </div>
+                <span class="custom-step-label" [class.teal]="activeStep >= 3">Property</span>
+              </div>
+            </ng-template>
+          </p-step>
 
-      <div class="icon">
-        <i class="fa-solid fa-cubes"></i>
-      </div>
+          <p-step [value]="4">
+            <ng-template #content let-value="value">
+              <div class="custom-step-content">
+                <div class="custom-step-circle" [class.teal]="activeStep >= 4">
+                  <i class="pi pi-file-edit"></i>
+                </div>
+                <span class="custom-step-label" [class.teal]="activeStep >= 4">Additional Requirements</span>
+              </div>
+            </ng-template>
+          </p-step>
+        </p-step-list>
 
-      <div class="label">
-        {{ section.label }}
-      </div>
+        <p-step-panels>
+          <!-- PANEL 1 - General -->
+          <p-step-panel [value]="1">
+            <ng-template #content let-activateCallback="activateCallback">
+              <div class="panel-content px-4">
+
+                <h3 class="panel-title">General Details</h3>
+
+                <div class="field-row">
+                  <div class="field-group">
+                    <label>Date</label>
+                    <input type="text" pInputText placeholder="" />
+                  </div>
+                  <div class="field-group">
+                    <label>Form No</label>
+                    <input type="text" pInputText placeholder="" />
+                  </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="radio-row">
+
+                  <label class="row-label">Date</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="Friends/Relatives">
+                      <label for="friends">Friends/Relatives</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="Print AD">
+                      <label for="printad">Print AD</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="visual" name="source" value="Visual Media">
+                      <label for="visual">Visual Media</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="website" name="source" value="Website">
+                      <label for="website">Website</label>
+                    </div>
 
 
-    @if (i < sections.length - 1) {
-      <div class="line"></div>
-    }
+                    <div class="radio-item">
+                      <input type="radio" id="digital" name="source" value="Digital AD">
+                      <label for="digital">Digital AD</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="others" name="source" value="Others">
+                      <label for="others">Others</label>
+                    </div>
+                  </div>
 
+
+                  </div>
+
+
+                <div class="divider"></div>
+
+                <div class="terms-row">
+                  <label>Do You Accept Terms & Conditions</label>
+
+                </div>
+
+              </div>
+
+              <!-- Bottom Buttons -->
+              <div class="bottom-buttons">
+                <button class="btn-prev" (click)="activateCallback(0)">
+                  &lt; Previous Page
+                </button>
+                <button class="btn-next" (click)="activateCallback(2)">
+                  Next Page &gt;
+                </button>
+              </div>
+            </ng-template>
+          </p-step-panel>
+
+          <!-- PANEL 2 - Personal -->
+         <p-step-panel [value]="2">
+  <ng-template #content let-activateCallback="activateCallback">
+
+    <div class="panel-content">
+
+      <h2 class="panel-title">Personal Details</h2>
+
+      @for (field of simpleFields; track field.label) {
+    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+      <label class="form-label">{{ field.label }}</label>
+      <input
+        pInputText
+        type="{{ field.type }}"
+        class="form-input"
+        placeholder="" />
     </div>
-
-
   }
 
+  <!-- State, City, Pincode Row (Special Case) -->
+  <div class="grid-row d-flex flex-row justify-content-around mb-4">
+    @for (field of addressFields; track field.label) {
+      <div class="form-group d-flex flex-row ">
+        <label class="form-label">{{ field.label }}</label>
+        <input
+          pInputText
+          type="text"
+          class="form-input"
+          placeholder="" />
+      </div>
+    }
 </div>
+      @for (field of simple; track field.label) {
+    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+      <label class="form-label">{{ field.label }}</label>
+      <input
+        pInputText
+        type="{{ field.type }}"
+        class="form-input"
+        placeholder="" />
+    </div>
+  }
 
-
-
-      </div>
-      <div class="content">
-
-
-    <div class="general-details px-4">
-      <h3>General Details</h3>
-      <div class="d-flex flex-row gap-5">
-        <div class="date d-flex flex-row justify-content-between">
-          <p class="m-0">Date</p>
-          <input type="text" class="date-box">
-        </div>
-
-        <div class="form d-flex flex-row justify-content-between">
-          <p class="m-0">Form</p>
-          <input type="text" class="date-box">
-        </div>
-      </div>
-      <div class="hr-line"></div>
     </div>
 
-      <div class="d-flex flex-row gap-5">
-        <div class="radio-section px-4">
-            <p>Date</p>
-          </div>
-            <div class="d-flex flex-row gap-5  align-items-center flex-wrap" style="width: 900px">
-              <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="d-flex flex-row gap-5 mt-3">
-        <div class="radio-button d-flex flex-row gap-2">
-        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-        <label for="friends">Friends/Relatives</label>
-      </div>
-      <div class="radio-button d-flex flex-row gap-2">
-        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-        <label for="friends">Friends/Relatives</label>
-      </div>
-      </div>
-            </div>
-
-
-      </div>
+    <!-- Bottom Navigation Buttons -->
+    <div class="bottom-buttons">
+      <button class="btn-prev" (click)="activateCallback(1)">
+        ← Previous Page
+      </button>
+      <button class="btn-next" (click)="activateCallback(3)">
+        Next Page →
+      </button>
 
 </div>
+  </ng-template>
+</p-step-panel>
 
-      </div>
+          <!-- PANEL 3 - Property -->
+          <p-step-panel [value]="3">
+            <ng-template #content let-activateCallback="activateCallback">
+              <div class="panel-content">
+                <h3 class="panel-title">Property Details</h3>
+                @for (field of propertyFields; track field.label) {
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">{{ field.label }}</label>
+                    <input
+                      pInputText
+                      type="{{ field.type }}"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  }
+                  <div class="form-group d-flex flex-row gap-3">
+                    <label class="form-label">Property Type</label>
+                    <div class="buttons d-flex flex-row justify-content-evenly mb-4">
+                      <button class="plot-btn btn" (click)="plot()">Plot</button>
+                      <button class="Apartment-btn btn" (click)="apartment()">Apartment</button>
+                      <button class="villa-btn btn" (click)="villa()">Villa</button>
+                      <button class="individual-btn btn" (click)="individual()">Individual</button>
+                    </div>
 
-<div class="buttons d-flex flex-row gap-0 p-0 m-0">
-  <button type="button" class="prev-button btn" [class.active]="" (click)="previous()">Previous</button>
-  <button type="button" class="next-button btn" (click)="next()">Next</button>
-</div> -->
 
+                  </div>
+                  @if (isplotopen) {
+                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
 
-<div class="flex justify-center">
-            <p-stepper [value]="1" class="basis-[50rem]">
-                <p-step-list>
-                    <p-step [value]="">Header I</p-step>
-                    <p-step [value]="">Header II</p-step>
-                    <p-step [value]="">Header III</p-step>
-                    <p-step [value]="">Header IV</p-step>
-                    <p-step [value]="">Header V</p-step>
+                    }
+                     @else if (isapartmentopen) {
+                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
 
-                </p-step-list>
-                <p-step-panels>
-                    <p-step-panel [value]="1">
-                        <ng-template #content let-activateCallback="activateCallback">
-                            <div class="flex flex-col" style="height: 700px;">
-                              <div class="general-details px-4">
-      <h3>General Details</h3>
-      <div class="d-flex flex-row gap-5">
-        <div class="date d-flex flex-row justify-content-between">
-          <p class="m-0">Date</p>
-          <input type="text" class="date-box">
-        </div>
+                    }
+                     @else if (isvillaopen) {
+                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plot</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
 
-        <div class="form d-flex flex-row justify-content-between">
-          <p class="m-0">Form</p>
-          <input type="text" class="date-box">
-        </div>
-      </div>
-      <div class="hr-line"></div>
-    </div>
+                    }
+                    @else {
+                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plots</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plots</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">plots</label>
+                    <input
+                      pInputText
+                      type="text"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
 
-      <div class="d-flex flex-row gap-5">
-        <div class="radio-section px-4">
-            <p>Date</p>
-          </div>
-            <div class="d-flex flex-row gap-5  align-items-center flex-wrap" style="width: 900px">
-              <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="radio-button d-flex flex-row gap-2">
-              <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-              <label for="friends">Friends/Relatives</label>
-            </div>
-            <div class="d-flex flex-row gap-5 mt-3">
-        <div class="radio-button d-flex flex-row gap-2">
-        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-        <label for="friends">Friends/Relatives</label>
-      </div>
-      <div class="radio-button d-flex flex-row gap-2">
-        <input type="radio" id="friends" value="friends" value="Friends/Relatives">
-        <label for="friends">Friends/Relatives</label>
-      </div>
-      </div>
-                            </div>
+                    }
+                    <div class="divider"></div>
 
-      </div>
-      </div>
-                          <div class="buttons d-flex flex-row">
-                              <p-button label="Previous" severity="secondary" icon="pi pi-arrow-left" class="prev-button"/>
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(2)"  class="next-button"/>
-                            </div>
-                        </ng-template>
-                    </p-step-panel>
-                    <p-step-panel [value]="2">
-                        <ng-template #content let-activateCallback="activateCallback">
-                            <div class="flex flex-col h-48">
-                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                            </div>
-                            <div class="flex pt-6 justify-between">
-                                <p-button label="Back" severity="secondary" icon="pi pi-arrow-left" (onClick)="activateCallback(1)" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(3)" />
-                            </div>
-                        </ng-template>
-                    </p-step-panel>
-                    <p-step-panel [value]="3">
-                        <ng-template #content let-activateCallback="activateCallback">
-                            <div class="flex flex-col h-48">
-                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                            </div>
-                            <div class="flex pt-6 justify-start">
-                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(2)" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(4)" />
-                            </div>
-                        </ng-template>
-                    </p-step-panel>
-                    <p-step-panel [value]="4">
-                        <ng-template #content let-activateCallback="activateCallback">
-                            <div class="flex flex-col h-48">
-                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content IV</div>
-                            </div>
-                            <div class="flex pt-6 justify-start">
-                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(3)" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(5)" />
-                            </div>
-                        </ng-template>
-                    </p-step-panel>
-                    <p-step-panel [value]="5">
-                        <ng-template #content let-activateCallback="activateCallback">
-                            <div class="flex flex-col h-48">
-                                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content V</div>
-                            </div>
-                            <div class="flex pt-6 justify-start">
-                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right" (onClick)="activateCallback(4)" />
-                            </div>
-                        </ng-template>
-                    </p-step-panel>
-                </p-step-panels>
-            </p-stepper>
-        </div>
+                    <div class="radio-row">
 
-    </div>
+  <label class="row-label">Purpose</label>
+
+  <div class="radio-group">
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="own-use">
+      <span class="custom-radio"></span>
+      Own Use
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="investment">
+      <span class="custom-radio"></span>
+      Investment
+    </label>
+
+    <label class="radio-item">
+      <input type="radio" name="purpose" value="rental-income">
+      <span class="custom-radio"></span>
+      Rental Income
+    </label>
+
   </div>
+
+</div>
+                    <div class="divider"></div>
+
+                     <div class="radio-row">
+
+                  <label class="row-label">Parking</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">Two-wheeler</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">Four- wheeler</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+                    <div class="divider"></div>
+
+
+                @for (field of budjetFields; track field.label) {
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">{{ field.label }}</label>
+                    <input
+                      pInputText
+                      type="{{ field.type }}"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  }
+
+                   <div class="radio-row">
+
+                  <label class="row-label">Do you
+Require Loan?</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">No</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+                    <div class="radio-row">
+
+                  <label class="row-label">Preferred
+Location</label>
+                  <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
+
+                    <div class="radio-item">
+                      <input type="radio" id="friends" name="source" value="own-use">
+                      <label for="friends">State</label>
+                    </div>
+                    <div class="radio-item">
+                      <input type="radio" id="printad" name="source" value="investment">
+                      <label for="printad">City</label>
+                    </div>
+
+
+                    </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                     @for (field of locationFields; track field.label) {
+                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">{{ field.label }}</label>
+                    <input
+                      pInputText
+                      type="{{ field.type }}"
+                      class="form-input"
+                      placeholder="" />
+                  </div>
+                  }
+
+
+
+              </div>
+              <div class="bottom-buttons">
+                <button class="btn-prev" (click)="activateCallback(2)">
+                  &lt; Previous Page
+                </button>
+                <button class="btn-next" (click)="activateCallback(4)">
+                  Next Page &gt;
+                </button>
+              </div>
+            </ng-template>
+          </p-step-panel>
+
+          <!-- PANEL 4 - Additional Requirements -->
+          <p-step-panel [value]="4">
+            <ng-template #content let-activateCallback="activateCallback">
+              <div class="panel-content">
+                <h3 class="panel-title">Additional Requirements</h3>
+                 <div class="form-group d-flex flex-row gap-3">
+                    <label class="form-label">Placeholder</label>
+                    <input
+                      pInputText
+                      type="textarea"
+                      class="form-input-textarea"
+                      placeholder="" />
+
+                  </div>
+                  <div class="button d-flex justify-content-end">
+                    <button class="sumbit-btn btn mt-2">Submit</button>
+                  </div>
+
+              </div>
+              <div class="bottom-buttons">
+                <button class="btn-prev" (click)="activateCallback(3)">
+                  &lt; Previous Page
+                </button>
+                <button class="btn-next">
+                  Submit &gt;
+                </button>
+              </div>
+            </ng-template>
+          </p-step-panel>
+        </p-step-panels>
+      </p-stepper>
+
+    </div>
+
+
+    </div>
+
 </section>
+<!-- <section class="left-over" style="background-color: #edf7f6; height: 100%;">
+<p>p</p>
+</section> -->
