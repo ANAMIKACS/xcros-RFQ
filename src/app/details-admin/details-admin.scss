@@ -13,12 +13,27 @@
     .details-section{
     padding-inline: 7rem;
 }
+.greeting {
+  margin-top: -90px;
+  margin-bottom: 60px;
+
+}
+
+.naame {
+  font-weight: 600;
+  color: white;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: white;
+}
 .profile-img {
-  width: 200px;        
-  height: 200px;
-  object-fit: cover;   
-  border-radius: 20px; 
-  margin:0 auto;
+  // width: 300px;        
+  // height: 300px;
+  // bject-fit: cover;   
+  //  border-radius: 20px; 
+  // margin:0 auto;
   margin-top: 50px;
 
 }
@@ -61,7 +76,7 @@
     //     height: 100%;
     // }
     .profile-name{
-        font-size: 20px;
+        // font-size: 20px;
         font-weight: 600;
         margin: 0%;
     }
@@ -78,10 +93,10 @@
     }
     .percentage{
         font-weight: 700;
-        font-size: 20px;
+        // font-size: 20px;
     }
     .location{
-        font-size: 20px;
+        // font-size: 20px;
         font-weight: 600;
     }
   .buttons {
@@ -100,13 +115,12 @@
 }
 
 .user-btn {
- 
-  background: white;
+  background: #FF9800;
+  color: white;
 }
 
 .business-btn {
   background: white;
-   background: #FF9800;
 }
     .badge {
   background: #1DB697;
@@ -304,20 +318,21 @@
 .info-card {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   align-items: center;  
   gap: 15px;
-    border:1px solid #e4e2e2;
+    border:1px solid #e4e2e2; 
+    height: 100%;
 }
 
 .info-value {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .info-icon img {
-  width: 90px;
+  width: 50px;
 }
 .info-card p {
   margin: 0;
@@ -373,4 +388,182 @@ background: #FF9800;
   padding: 10px;
   font-size: 12px;
 }
+.all-listing-box{
+          background: #ffffff;
+    border-radius: 6px !important;
+    }
+    .listing-box-header{
+        background:  #008080 !important;
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    }
+    .listing-title{
+         margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    }
+
+.all-listing-box {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
 }
+
+.listing-box-header {
+  background: #4f7c7c;
+  color: white;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.media-body{
+    border:1px solid #e4e2e2;
+}
+.rotate {
+  transform: rotate(180deg);
+}
+.statistics-body{
+    padding: 5px;
+     border:1px solid #e4e2e2;
+}
+.stat-item{
+ width: 100%;
+    height:fit-content;
+    color:#fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background: linear-gradient(
+    135deg,
+    #1DB697 0%,
+    #5fbf8a 40%,
+    #ff9800 100%
+  );
+}
+.statistics-box p{
+     font-size: 18px;
+   font-weight: 700;
+}
+
+
+}
+
+.listing-section-wrapper {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0;
+  margin-top: 15px;
+  overflow: hidden;
+  border: 1px solid #e4e2e2;
+}
+
+
+.listing-section-header {
+  background: #4f7c7c;
+  color: white;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.filter-input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+@media (max-width: 768px){
+   .details-section{
+    padding-inline: 2rem;
+}
+.profile-card {
+        margin-top: 10px !important;
+    }
+    .greeting{
+     display: none !important;
+    }
+    .edit-profile{
+      margin-top: 10px !important;
+    }
+     .listing-card{
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px;
+  }
+
+  .listing-left img{
+    width: 100%;
+    height: auto;
+  }
+
+  .listing-left, 
+    .listing-middle, 
+    .listing-description, 
+    .listing-right, 
+    .listing-end {
+        width: 100% !important; 
+        margin-bottom: 15px;
+    }
+
+  .stats-box,
+  .timer-box,
+  .view-btn{
+    width: 100% !important;
+  }
+
+  .v-line{
+    display: none ;
+  }
+  .info-card {
+    flex-direction: column !important; 
+    text-align: center;
+    padding: 10px;
+  }}
+  @media (max-width: 992px){
+
+ .info-card {
+    flex-direction: column; 
+    text-align: center;
+    padding: 10px;
+  }
+
+  .info-icon img{
+    width: 50px !important;   
+  }
+
+  .info-value{
+    font-size: 18px;
+  }
+
+  .info-card p{
+    font-size: 12px;
+  }
+
+}
+@media(max-width:1024px){
+  .profile-name{
+    font-size: 15px !important;
+  }
+  .location{
+    font-size: 15px !important;
+  }
+ 
+  .details-section{
+    padding-inline: 2rem !important;
+}
+.rfq-item{
+  font-size: 15px !important;
+}
+.menu-item{
+  font-size: 13px !important;
+}
+ 
+}
+
