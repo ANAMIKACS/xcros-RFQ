@@ -22,6 +22,7 @@ import { AdminCampaigns } from './admin/campaigns/campaigns';
 
 import { RfqCategory } from './rfq-category/rfq-category';
 import { ExpoHome } from './expo/expo-home/expo-home';
+import { ExpoDetails } from './expo/expo-details/expo-details';
 
 export const routes: Routes = [
   {path:'rfqform', component:RfqForm},
@@ -59,6 +60,7 @@ export const routes: Routes = [
   {path: 'expo',
   children: [
     { path: '', component: ExpoHome },
+    { path: 'expodetails', component: ExpoDetails}
   ]
 }
 

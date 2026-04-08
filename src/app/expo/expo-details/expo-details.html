@@ -1,1 +1,136 @@
-<p>expo-details works!</p>
+<section class="expo-name">
+  <div class="d-flex  align-items-center h-100">
+     <p class="name">XPO NAME</p>
+  </div>
+</section>
+
+<!--second section-->
+<section class="main-sectiom">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-12 col-lg-8 py-5">
+        <div class="left-content p-3">
+          <p class="text-muted">{{leftContent}}</p>
+          <img [src]="leftImage" alt="">
+          <div class="tab d-flex flex-row gap-2 mt-3 flex-wrap">
+            @for (item of tab; track $index) {
+              <div class="items">
+                 <p>{{item.name}}</p>
+              </div>
+
+            }
+
+          </div>
+           <div class="share">
+              <p>Share This Event</p>
+              <div class="d-flex flex-row gap-4">
+                @for (item of media; track $index) {
+                  <div class="social-media">
+                     <i [class]="item.icon"></i>
+                </div>
+                 }
+              </div>
+            </div>
+        </div>
+
+
+        <div class="bottom-content mt-4">
+          <div class="nav-tabs">
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 0"
+    (click)="setTab(0)">
+    Pricing
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 1"
+    (click)="setTab(1)">
+    Register
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 2"
+    (click)="setTab(2)">
+    Schedule
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 3"
+    (click)="setTab(3)">
+    Gallery
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 4"
+    (click)="setTab(4)">
+    Participants
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 5"
+    (click)="setTab(5)">
+    FAQ
+  </div>
+
+  <div
+    class="tab-item"
+    [class.active]="activeTab === 6"
+    (click)="setTab(6)">
+    Contact
+  </div>
+
+
+
+</div>
+ <div class="open-tab p-3">
+    @if (activeTab === 0) {
+      <div class="d-flex flex-row gap-3">
+    <button class="exhibitors-btn btn"
+    [class.active]="selectTab === 0"
+    (click)="selectTabIndex(0)">
+    Exhibitors
+      </button>
+
+    <button class="visitors-btn btn"
+    [class.active]="selectTab === 1"
+    (click)="selectTabIndex(0)">
+      Visitors
+  </button>
+
+
+    </div>
+     @if (selectTab === 0) {
+      <div class="package mt-3">
+        <p class="packagename">Package Name</p>
+        <p class="amount">
+          <i class="fa-solid fa-indian-rupee-sign"></i><span>1000</span>
+        </p>
+        <p></p>
+      </div>
+    }
+    @if (selectTab === 1) {
+
+    }
+  }
+  </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
