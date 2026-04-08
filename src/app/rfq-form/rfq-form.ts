@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-rfq-form',
-  imports: [ButtonModule, StepperModule],
+  imports: [ButtonModule, StepperModule, FormsModule],
   templateUrl: './rfq-form.html',
   styleUrl: './rfq-form.scss',
 })
@@ -75,11 +76,68 @@ sections = [
 // setActive(index: number) {
 //   this.activeIndex = index;
 // }
+activeStep: number = 1;
+acceptTerms: boolean = false;
 
-previous (){
 
+onNext(activateCallback: (step: number) => void) {
+    activateCallback(3);
+  }
+
+  onBack(activateCallback: (step: number) => void) {
+    activateCallback(1);
 }
-next(){
+simpleFields = [
+    { label: 'Name',       type: 'text' },
+    { label: 'Profession', type: 'text' },
+    { label: 'Company',    type: 'text' },
+    { label: 'Designation',type: 'text' },
+    { label: 'Address',    type: 'text' },
 
-}
+  ];
+
+  // Fields for State, City, Pincode row
+  addressFields = [
+    { label: 'State' },
+    { label: 'City' },
+    { label: 'Pincode' }
+  ]
+
+  simple = [
+      { label: 'Email',      type: 'email' },
+    { label: 'Mobile',     type: 'tel' },
+    { label: 'Age',        type: 'text' }
+  ]
+
+  propertyFields = [
+    {label: 'Property', type: 'text'},
+
+  ]
+   isplotopen = false;
+  isapartmentopen = false;
+  isvillaopen = false;
+  isindividualopen = false;
+  plot(): void {
+    this.isplotopen = true;
+    this.isapartmentopen = false;
+    this.isvillaopen = false;
+  }
+
+  apartment(): void {
+    this.isplotopen = false;
+    this.isapartmentopen = true;
+    this.isvillaopen = false;
+  }
+
+  villa(): void {
+    this.isplotopen = false;
+    this.isapartmentopen = false;
+    this.isvillaopen = true;
+  }
+  individual(){
+    this.isindividualopen = true;
+    this.isapartmentopen = false;
+    this.isplotopen = false;
+
+  }
 }

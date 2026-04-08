@@ -9,13 +9,15 @@ import { Property } from './rfq/property/property';
 import { Replies } from './rfq/replies/replies';
 import { Matches } from './rfq/matches/matches';
 import { Campaigns } from './rfq/campaigns/campaigns';
+import { RfqAdminDetails } from './rfq-admin-details/rfq-admin-details';
 
 export const routes: Routes = [
   {path:'rfqform', component:RfqForm},
   {path:'rfqlisting', component:RfqListing},
+  {path: 'rfqadmindetails', component:RfqAdminDetails},
  {
     path: 'detailsUser',
-    component: DetailsUser,  
+    component: DetailsUser,
     children: [
       { path: 'listing', component: Listing },
       { path: 'general', component: General },
