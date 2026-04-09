@@ -739,3 +739,34 @@ label {
   display: inline-block;
   
 }
+@media(max-width:1024px){
+    .middle b{
+       width: 100% !important;
+       font-size: 13px !important;
+    }
+    .middle p{
+        font-size: 13px !important;
+    }
+    .status {
+        font-size: 10px !important;
+    }
+    .gradient-box{
+        width: 100% !important;
+    }
+    .gradient-box p{
+        font-size: 13px !important;
+        margin-bottom: 0% !important;
+    }
+    .gradient-box b{
+        font-size: 13px !important;
+        margin-bottom: 0% !important;
+    }
+    .campaign-header p{
+        font-size: 15px !important;
+        padding: 10px 15px !important;
+    }
+    .add-btn{
+        padding: 5px !important;
+        font-size: 15px !important;
+    }
+}
