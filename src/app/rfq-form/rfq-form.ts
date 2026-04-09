@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-rfq-form',
-  imports: [ButtonModule, StepperModule, FormsModule],
+  imports: [CommonModule, ButtonModule, StepperModule, FormsModule],
   templateUrl: './rfq-form.html',
   styleUrl: './rfq-form.scss',
 })
@@ -126,11 +127,41 @@ isapartmentopen = false;
 isvillaopen = false;
 isindividualopen = false;
 
+propertyType = 'Plot';
+plotType = '';
+bedrooms = '';
+bathrooms = '';
+propertySize = '';
+selectedParking = '';
+parkingType = '';
+loanRequired: boolean | null = null;
+income = '';
+loanRequirement = '';
+
 resetAll() {
   this.isplotopen = false;
   this.isapartmentopen = false;
   this.isvillaopen = false;
   this.isindividualopen = false;
+}
+
+setPropertyType(type: string) {
+  this.propertyType = type;
+}
+
+setParking(value: string) {
+  this.selectedParking = value;
+  if (value !== 'Four-wheeler') {
+    this.parkingType = '';
+  }
+}
+
+setLoanRequired(value: boolean) {
+  this.loanRequired = value;
+  if (!value) {
+    this.income = '';
+    this.loanRequirement = '';
+  }
 }
 
 plot() {

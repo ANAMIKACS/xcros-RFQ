@@ -1,7 +1,7 @@
 <section class="form">
   <div class="row p-0 m-0">
     <!--left content-->
-    <div class="col-12 col-lg-4 p-0 m-0">
+    <div class="col-12 col-lg-4 p-0 m-0" style="display: flex; flex-direction: column;">
       <div class="left-content-image">
 
         <img [src]="backgorund" class="left-image" alt="">
@@ -274,107 +274,36 @@
                   <div class="form-group d-flex flex-row gap-3">
                     <label class="form-label">Property Type</label>
                     <div class="buttons d-flex flex-row justify-content-evenly mb-4">
-                      <button class="plot-btn btn" (click)="plot()">Plot</button>
-                      <button class="Apartment-btn btn" (click)="apartment()">Apartment</button>
-                      <button class="villa-btn btn" (click)="villa()">Villa</button>
-                      <button class="individual-btn btn" (click)="individual()">Individual</button>
+                      <button type="button" class="property-btn" [class.active]="propertyType === 'Plot'" (click)="setPropertyType('Plot')">Plot</button>
+                      <button type="button" class="property-btn" [class.active]="propertyType === 'Apartment'" (click)="setPropertyType('Apartment')">Apartment</button>
+                      <button type="button" class="property-btn" [class.active]="propertyType === 'Villa'" (click)="setPropertyType('Villa')">Villa</button>
+                      <button type="button" class="property-btn" [class.active]="propertyType === 'Individual'" (click)="setPropertyType('Individual')">Individual</button>
                     </div>
-
-
-                  </div>
-                  @if (isplotopen) {
-                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
                   </div>
 
-                    }
-                     @else if (isapartmentopen) {
-                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
+                  <div *ngIf="propertyType === 'Plot'">
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Plot Type</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="plotType" placeholder="" />
+                    </div>
                   </div>
 
-                    }
-                     @else if (isvillaopen) {
-                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plot</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
+                  <div *ngIf="propertyType !== 'Plot'">
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Bedrooms</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="bedrooms" placeholder="" />
+                    </div>
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Bathrooms</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="bathrooms" placeholder="" />
+                    </div>
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Property Size</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="propertySize" placeholder="" />
+                    </div>
                   </div>
 
-                    }
-                    @else {
-                      <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plots</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plots</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
-                    <label class="form-label">plots</label>
-                    <input
-                      pInputText
-                      type="text"
-                      class="form-input"
-                      placeholder="" />
-                  </div>
-
-                    }
-                    <div class="divider"></div>
+                  <div class="divider"></div>
 
                     <div class="radio-row">
 
@@ -411,19 +340,32 @@
                   <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
 
                     <div class="radio-item">
-                      <input type="radio" id="friends" name="source" value="own-use">
-                      <label for="friends">Two-wheeler</label>
+                      <input type="radio" id="parking-two" name="parking" value="Two-wheeler" [(ngModel)]="selectedParking" (click)="setParking('Two-wheeler')">
+                      <label for="parking-two">Two-wheeler</label>
                     </div>
                     <div class="radio-item">
-                      <input type="radio" id="printad" name="source" value="investment">
-                      <label for="printad">Four- wheeler</label>
+                      <input type="radio" id="parking-four" name="parking" value="Four-wheeler" [(ngModel)]="selectedParking" (click)="setParking('Four-wheeler')">
+                      <label for="parking-four">Four-wheeler</label>
                     </div>
 
+                  </div>
+                  </div>
 
+                  <div *ngIf="selectedParking === 'Four-wheeler'" class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <label class="form-label">Parking Type</label>
+                    <div class="radio-group d-flex gap-4 align-items-center">
+                      <div class="radio-item">
+                        <input type="radio" id="parking-open" name="parkingType" value="Open" [(ngModel)]="parkingType">
+                        <label for="parking-open">Open</label>
+                      </div>
+                      <div class="radio-item">
+                        <input type="radio" id="parking-close" name="parkingType" value="Close" [(ngModel)]="parkingType">
+                        <label for="parking-close">Close</label>
+                      </div>
                     </div>
-                    </div>
-                    <div class="divider"></div>
+                  </div>
 
+                  <div class="divider"></div>
 
                 @for (field of budjetFields; track field.label) {
                   <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
@@ -438,22 +380,32 @@
 
                    <div class="radio-row">
 
-                  <label class="row-label">Do you
-Require Loan?</label>
+                  <label class="row-label">Do you Require Loan?</label>
                   <div class="radio-group d-flex justify-content-evenly gap-5 flex-wrap">
 
                     <div class="radio-item">
-                      <input type="radio" id="friends" name="source" value="own-use">
-                      <label for="friends">Yes</label>
+                      <input type="radio" id="loan-yes" name="loanRequired" [value]="true" [(ngModel)]="loanRequired" (click)="setLoanRequired(true)">
+                      <label for="loan-yes">Yes</label>
                     </div>
                     <div class="radio-item">
-                      <input type="radio" id="printad" name="source" value="investment">
-                      <label for="printad">No</label>
+                      <input type="radio" id="loan-no" name="loanRequired" [value]="false" [(ngModel)]="loanRequired" (click)="setLoanRequired(false)">
+                      <label for="loan-no">No</label>
                     </div>
 
+                  </div>
+                  </div>
 
+                  <div *ngIf="loanRequired === true">
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Income</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="income" placeholder="" />
                     </div>
+                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                      <label class="form-label">Loan Requirement</label>
+                      <input pInputText type="text" class="form-input" [(ngModel)]="loanRequirement" placeholder="" />
                     </div>
+                  </div>
+
                     <div class="radio-row">
 
                   <label class="row-label">Preferred
