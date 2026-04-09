@@ -1,6 +1,6 @@
 // Variables
-$primary-teal: #00897b;
-$primary-teal-light: #26a69a;
+$primary-teal: teal;
+$primary-teal-light: teal;
 $accent-orange: #ff9800;
 $bg-light: #edf7f6;
 $text-dark: #333;
@@ -20,7 +20,8 @@ $border-color: #eaeaea;
 
 // Header Banner
 .expo-header-banner {
-  background: linear-gradient(135deg, #437171 0%, #008080 100%);
+background: linear-gradient(0deg, #008080 0%, #FF9800 100%);
+
   padding: 60px 0;
   color: #fff;
   margin-bottom: 40px;
@@ -203,6 +204,9 @@ $border-color: #eaeaea;
     flex: 1;
     text-align: center;
   }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 }
 
 // Package Card
@@ -269,6 +273,10 @@ $border-color: #eaeaea;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-group {
@@ -425,7 +433,7 @@ $border-color: #eaeaea;
 /* ---- GALLERY GRID ---- */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
   
   .gallery-item {
@@ -453,6 +461,16 @@ $border-color: #eaeaea;
   gap: 15px;
   border-right: 3px solid $primary-teal;
   padding-right: 15px;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   .participant-item {
     border-radius: 8px;
@@ -561,6 +579,19 @@ $border-color: #eaeaea;
       color: $accent-orange;
       border: 1px solid $accent-orange;
     }
+  }
+}
+
+// Rep Profile responsiveness
+.rep-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
   }
 }
 
