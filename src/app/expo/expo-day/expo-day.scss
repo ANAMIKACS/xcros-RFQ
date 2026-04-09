@@ -1,0 +1,183 @@
+.expo-day-container {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.hero-section {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  // Blend colors combining deep teal/blue tint from the screenshot
+  background: linear-gradient(135deg, rgba(0, 110, 130, 0.45) 0%, rgba(0, 30, 100, 0.65) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  width: 100%;
+}
+
+// Huge blurred background text layer "EXPO"
+.bg-text {
+  position: absolute;
+  top: -15px; // tweak overlap with EXPO TITLE
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: 15px;
+  color: rgba(255,255,255,0.15);
+  z-index: -1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.main-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin: 0 0 10px;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+// Countdown Clock
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+
+  .number {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.35);
+  margin: 0 15px;
+}
+
+// Buttons
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  .pill-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover, &.active {
+      background: #00897b; // Specific teal button color active edge
+      border-color: #00897b;
+    }
+  }
+}
+
+// Stats Multi-colored bottom Bar
+.stats-bar {
+  display: flex;
+  width: 100%;
+  
+  .stat-block {
+    flex: 1;
+    padding: 30px 15px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      line-height: 1.1;
+    }
+    
+    .stat-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+  }
+}
+
+/* Hardcoding the 5 distinct shades of orange shown exactly across the graphic strip */
+.bg-orange-1 { background-color: #f79400; }
+.bg-orange-2 { background-color: #e98b00; }
+.bg-orange-3 { background-color: #df8400; }
+.bg-orange-4 { background-color: #d67d00; }
+.bg-orange-5 { background-color: #cc7600; }
+
+// Helper Spacing Overrides
+.mt-4 { margin-top: 1.5rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+
+// Responsive Design
+@media (max-width: 900px) {
+  .main-title { font-size: 3rem; }
+  .bg-text { font-size: 5rem; }
+  .time-box .number { font-size: 2rem; }
+  .stats-bar { flex-wrap: wrap; }
+  .stats-bar .stat-block { flex: 1 1 50%; }
+}
+
+@media (max-width: 576px) {
+  .hero-section { height: auto; padding: 60px 0; }
+  .main-title { font-size: 2rem; }
+  .bg-text { font-size: 3rem; }
+  .countdown-wrapper { gap: 10px; }
+  .time-box { min-width: 60px; }
+  .time-box .number { font-size: 1.5rem; }
+  .divider { margin: 0 5px; }
+  .stats-bar .stat-block { flex: 1 1 100%; }
+}
