@@ -1,136 +1,353 @@
-<section class="expo-name">
-  <div class="d-flex  align-items-center h-100">
-     <p class="name">XPO NAME</p>
+<div class="expo-page-wrapper">
+  <!-- Hero Header -->
+  <div class="expo-header-banner">
+    <div class="container relative" style="position: relative;">
+      <button class="back-btn-absolute" [routerLink]="['/expo']">
+        <i class="pi pi-arrow-left"></i>
+      </button>
+      <h1>XPO Name</h1>
+    </div>
   </div>
-</section>
 
-<!--second section-->
-<section class="main-sectiom">
+  <div class="container mt-4">
+    <div class="details-layout-grid">
 
-  <div class="container">
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Main Content Card -->
+        <div class="main-info-card shadow-sm">
+          <p class="description-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
 
-    <div class="row">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop" class="main-event-image mt-4" alt="Expo Floor">
 
-      <div class="col-12 col-lg-8 py-5">
-        <div class="left-content p-3">
-          <p class="text-muted">{{leftContent}}</p>
-          <img [src]="leftImage" alt="">
-          <div class="tab d-flex flex-row gap-2 mt-3 flex-wrap">
-            @for (item of tab; track $index) {
-              <div class="items">
-                 <p>{{item.name}}</p>
-              </div>
-
-            }
-
+          <div class="tags-row mt-4">
+            <button class="tag-btn">Lorem</button>
+            <button class="tag-btn">Lorem</button>
+            <button class="tag-btn">Lorem</button>
+            <button class="tag-btn">Lorem</button>
+            <button class="tag-btn">Lorem</button>
           </div>
-           <div class="share">
-              <p>Share This Event</p>
-              <div class="d-flex flex-row gap-4">
-                @for (item of media; track $index) {
-                  <div class="social-media">
-                     <i [class]="item.icon"></i>
+
+          <div class="share-section mt-4">
+            <h4>Share This Event</h4>
+            <div class="social-icons mt-3">
+              <button class="social-btn"><i class="pi pi-facebook"></i></button>
+              <button class="social-btn"><i class="pi pi-twitter"></i></button>
+              <button class="social-btn" style="font-size: 13px; font-weight: bold; font-family: sans-serif;">VK</button>
+              <button class="social-btn"><i class="pi pi-instagram"></i></button>
+              <button class="social-btn"><i class="pi pi-pinterest"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Tabs -->
+        <div class="tabular-nav mt-4 shadow-sm">
+          <button class="tab-nav-item" [class.active]="activeTab === 'pricing'" (click)="setTab('pricing')">Pricing</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'register'" (click)="setTab('register')">Register</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'schedule'" (click)="setTab('schedule')">Schedule</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'gallery'" (click)="setTab('gallery')">Gallery</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'participants'" (click)="setTab('participants')">Participants</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'faq'" (click)="setTab('faq')">FAQ</button>
+          <button class="tab-nav-item" [class.active]="activeTab === 'contact'" (click)="setTab('contact')">Contact</button>
+        </div>
+
+        <!-- Tab Content Area -->
+        <div class="tab-content-area mt-4 bg-white p-4 shadow-sm tab-card">
+          
+          <!-- Sub Tabs (Only for certain tabs) -->
+          <div class="sub-tabs mb-4" *ngIf="activeTab === 'register' || activeTab === 'participants' || activeTab === 'faq' || activeTab === 'contact'">
+            <button class="sub-tab-btn" [class.active]="activeSubTab === 'exhibitors'" [class.outline]="activeSubTab !== 'exhibitors'" (click)="setSubTab('exhibitors')">Exhibitors</button>
+            <button class="sub-tab-btn" [class.active]="activeSubTab === 'visitors'" [class.outline]="activeSubTab !== 'visitors'" (click)="setSubTab('visitors')">Visitors</button>
+          </div>
+          <div class="sub-tabs schedule-sub-tabs mb-4" *ngIf="activeTab === 'schedule'">
+            <button class="sub-tab-btn" *ngFor="let day of scheduleDays; let i = index" 
+                [class.active]="activeScheduleDay === day" 
+                [class.outline]="activeScheduleDay !== day" 
+                (click)="setScheduleDay(day)">Day {{i+1}}</button>
+          </div>
+
+          <!-- PRICING TAB -->
+          <div *ngIf="activeTab === 'pricing'">
+            <div class="package-details-card">
+              <div class="package-left">
+                <h4>Package Name</h4>
+                <div class="price">&#8377; 1,000</div>
+                <ul class="package-features">
+                  <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                </ul>
+              </div>
+              <div class="package-right">
+                <div class="scrollbar-sim-content">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                 }
               </div>
             </div>
+          </div>
+
+          <!-- REGISTER TAB -->
+          <div *ngIf="activeTab === 'register'">
+            <div class="form-grid">
+              <div class="form-group"><label>Company Name*</label><input type="text" class="form-control"></div>
+              <div class="form-group"><label>Full Name*</label><input type="text" class="form-control"></div>
+              <div class="form-group"><label>Mobile No*</label><input type="text" class="form-control"></div>
+              <div class="form-group"><label>Email Id*</label><input type="email" class="form-control"></div>
+              <div class="form-group"><label>Address*</label><input type="text" class="form-control"></div>
+              <div class="form-group"><label>Select Category*</label>
+                <select class="form-control">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="checkbox-group mt-4">
+              <label class="custom-checkbox mb-3">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="label-text">By submitting this form, you expressly agree that your personal information may be collected, used and disclosed by the Organizer, its affiliated companies and/or its authorized agents for the purposes of: (a) processing your registration and payment; (b) facilitating event activities; and <a href="#">Read more</a></span>
+              </label>
+              <label class="custom-checkbox mb-3">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="label-text">I would like to receive marketing materials, event collaterals and industry news & updates from Gudvil Nexus only.</span>
+              </label>
+              <label class="custom-checkbox mb-3">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="label-text">I would like to receive marketing materials, event collaterals, information from other events and industry news & updates from Exhibitions.</span>
+              </label>
+              <label class="custom-checkbox mb-3">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="label-text">We will appreciate if you can let us know how you would like to be contacted, so that we can update your preferences immediately.</span>
+              </label>
+            </div>
+            
+            <div class="d-flex gap-5 mb-4 ms-4 ps-2">
+              <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text fw-bold">Email</span></label>
+              <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text fw-bold">Mobile</span></label>
+            </div>
+            
+            <button class="btn btn-warning submit-btn">SUBMIT</button>
+          </div>
+
+          <!-- SCHEDULE TAB -->
+          <div *ngIf="activeTab === 'schedule'" class="schedule-list">
+            <div class="accordion-item" *ngFor="let item of scheduleList; let i = index" [class.expanded]="scheduleExpandedIdx === i">
+              <div class="accordion-header" (click)="toggleSchedule(i)">
+                <div class="d-flex gap-4 align-items-center">
+                  <span class="acc-date">{{item.date}}</span>
+                  <span class="acc-time">{{item.time}}</span>
+                  <span class="acc-title">{{item.title}}</span>
+                </div>
+                <i class="pi" [ngClass]="scheduleExpandedIdx === i ? 'pi-chevron-up' : 'pi-chevron-down'"></i>
+              </div>
+              <div class="accordion-body" *ngIf="scheduleExpandedIdx === i">
+                <p>{{item.content}}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GALLERY TAB -->
+          <div *ngIf="activeTab === 'gallery'" class="gallery-grid">
+            <div class="gallery-item" *ngFor="let img of galleryImages" [class.empty]="!img">
+              <img *ngIf="img" [src]="img" alt="Gallery Image">
+            </div>
+          </div>
+
+          <!-- PARTICIPANTS TAB -->
+          <div *ngIf="activeTab === 'participants'" class="participants-grid">
+            <div class="participant-item" *ngFor="let p of participants" 
+                [class.bg-dark]="p.dark" 
+                [class.bg-red]="p.red" 
+                [class.bg-blue]="p.blue">
+              <img [src]="p.src" [alt]="p.name" [class.invert]="p.dark && !p.bgImage" [class.bg-image-fix]="p.bgImage">
+            </div>
+          </div>
+
+          <!-- FAQ TAB -->
+          <div *ngIf="activeTab === 'faq'" class="faq-list">
+            <div class="accordion-item" *ngFor="let faq of faqs; let i = index" [class.expanded]="faqExpandedIdx === i">
+              <div class="accordion-header" (click)="toggleFaq(i)">
+                <span class="acc-title fw-bold text-dark" style="font-size: 0.95rem;">{{faq.question}}</span>
+                <i class="pi" [ngClass]="faqExpandedIdx === i ? 'pi-chevron-up' : 'pi-chevron-down'"></i>
+              </div>
+              <div class="accordion-body" *ngIf="faqExpandedIdx === i">
+                <p>{{faq.answer}}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT TAB -->
+          <div *ngIf="activeTab === 'contact'">
+            <div class="form-container">
+              <div class="form-group mb-3"><label>Full Name*</label><input type="text" class="form-control"></div>
+              <div class="form-group mb-3"><label>Email ID*</label><input type="email" class="form-control"></div>
+              <div class="form-group mb-3"><label>Subject*</label><input type="text" class="form-control"></div>
+              <div class="form-group mb-4"><label>Message</label><textarea class="form-control" rows="4"></textarea></div>
+              
+              <label class="custom-checkbox teal-checkbox mb-4">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="label-text fw-bold text-dark" style="font-size: 0.9rem;">I consent to Event organizers and Exhibitors collecting my details through this form to contact me.</span>
+              </label>
+              
+              <button class="btn btn-warning submit-btn">SUBMIT</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <!-- Event Details Card -->
+        <div class="sidebar-widget mb-4 shadow-sm">
+          <div class="widget-header">
+            <h4>EVENT DETAILS</h4>
+          </div>
+          <div class="widget-body">
+            <ul class="event-details-list">
+              <li>
+                <div class="icon"><i class="pi pi-calendar"></i></div>
+                <div class="info">
+                  <span class="label">START DATE</span>
+                  <span class="val">March 17, 2024 12:00 pm</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-calendar-times"></i></div>
+                <div class="info">
+                  <span class="label">END DATE</span>
+                  <span class="val">March 25, 2028 10:45 pm</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-clock"></i></div>
+                <div class="info">
+                  <span class="label">NO OF DAYS</span>
+                  <span class="val">10:00 am</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-check-circle"></i></div>
+                <div class="info">
+                  <span class="label">STATUS</span>
+                  <span class="val">Showing</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-map-marker"></i></div>
+                <div class="info">
+                  <span class="label">LOCATION</span>
+                  <span class="val">Istanbul</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-map"></i></div>
+                <div class="info">
+                  <span class="label">VENUE</span>
+                  <span class="val">Istanbul Event Arena</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon" style="transform: rotate(90deg);"><i class="pi pi-tag"></i></div>
+                <div class="info">
+                  <span class="label">PRICE</span>
+                  <span class="val">$30</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon"><i class="pi pi-folder-open"></i></div>
+                <div class="info">
+                  <span class="label">CATEGORY</span>
+                  <span class="val">Food</span>
+                </div>
+              </li>
+              <li class="border-0 pb-0">
+                <div class="icon"><i class="pi pi-share-alt"></i></div>
+                <div class="info">
+                  <span class="label">NETWORK</span>
+                  <div class="social-icons mini mt-2">
+                    <button class="social-btn"><i class="pi pi-facebook"></i></button>
+                    <button class="social-btn"><i class="pi pi-twitter"></i></button>
+                    <button class="social-btn" style="font-size: 9px; font-weight: bold; font-family: sans-serif;">VK</button>
+                    <button class="social-btn"><i class="pi pi-instagram"></i></button>
+                    <button class="social-btn"><i class="pi pi-pinterest"></i></button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
+        <!-- Representatives Card -->
+        <div class="sidebar-widget mb-4 shadow-sm">
+          <div class="widget-header d-flex justify-content-between align-items-center">
+            <h4>REPRESENTATIVES</h4>
+            <i class="pi pi-chevron-up text-white" style="font-size: 0.8rem;"></i>
+          </div>
+          <div class="widget-body">
+            <div class="rep-tabs mb-4">
+              <button class="rep-tab-btn active">Business</button>
+              <button class="rep-tab-btn outline">Location Agent</button>
+            </div>
+            
+            <div class="rep-profile d-flex justify-content-between align-items-center">
+              <div class="rep-user d-flex align-items-center gap-3">
+                <img src="https://i.pravatar.cc/150?u=50" alt="Bala" class="rounded-circle" width="45" height="45">
+                <div class="d-flex flex-column">
+                  <span class="text-dark font-weight-bold" style="font-size: 1.1rem;">Bala</span>
+                  <span class="text-muted" style="font-size: 0.8rem;">Designation</span>
+                </div>
+              </div>
+              <div class="rep-actions d-flex align-items-center rounded-pill p-1" style="background-color: #e2e8f0; gap: 4px;">
+                <button class="action-ico green m-0"><i class="pi pi-user"></i></button>
+                <button class="action-ico blue m-0"><i class="pi pi-comment"></i></button>
+                <button class="action-ico orange m-0"><i class="pi pi-comments"></i></button>
+              </div>
+            </div>
 
-        <div class="bottom-content mt-4">
-          <div class="nav-tabs">
+            <div class="rep-dates mt-4">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="label-muted">Created Date:</span>
+                <span class="val-dark">10/01/2026</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="label-muted">Updated Date:</span>
+                <span class="val-dark">10/01/2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 0"
-    (click)="setTab(0)">
-    Pricing
+        <!-- Sponsors Card -->
+        <div class="sidebar-widget shadow-sm pb-2">
+          <div class="widget-header d-flex justify-content-between align-items-center">
+            <h4>SPONSORS</h4>
+            <i class="pi pi-chevron-up text-white" style="font-size: 0.8rem;"></i>
+          </div>
+          <div class="widget-body p-2">
+            <div class="sponsors-grid">
+              <div class="sponsor-box bg-dark"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="filter: invert(1); width: 70px;"></div>
+              <div class="sponsor-box bg-dark"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Sony_logo.svg" alt="Sony" style="filter: invert(1); width: 80px;"></div>
+              <div class="sponsor-box bg-dark"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla" style="filter: invert(1); width: 80px;"></div>
+              <div class="sponsor-box bg-dark d-flex align-items-center justify-content-center"><img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" style="filter: invert(1); width: 80px; margin-top: -10px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 1"
-    (click)="setTab(1)">
-    Register
-  </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 2"
-    (click)="setTab(2)">
-    Schedule
-  </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 3"
-    (click)="setTab(3)">
-    Gallery
-  </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 4"
-    (click)="setTab(4)">
-    Participants
-  </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 5"
-    (click)="setTab(5)">
-    FAQ
-  </div>
-
-  <div
-    class="tab-item"
-    [class.active]="activeTab === 6"
-    (click)="setTab(6)">
-    Contact
-  </div>
-
-
-
 </div>
- <div class="open-tab p-3">
-    @if (activeTab === 0) {
-      <div class="d-flex flex-row gap-3">
-    <button class="exhibitors-btn btn"
-    [class.active]="selectTab === 0"
-    (click)="selectTabIndex(0)">
-    Exhibitors
-      </button>
-
-    <button class="visitors-btn btn"
-    [class.active]="selectTab === 1"
-    (click)="selectTabIndex(0)">
-      Visitors
-  </button>
-
-
-    </div>
-     @if (selectTab === 0) {
-      <div class="package mt-3">
-        <p class="packagename">Package Name</p>
-        <p class="amount">
-          <i class="fa-solid fa-indian-rupee-sign"></i><span>1000</span>
-        </p>
-        <p></p>
-      </div>
-    }
-    @if (selectTab === 1) {
-
-    }
-  }
-  </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4">
-
-      </div>
-
-    </div>
-
-
-  </div>
-</section>
