@@ -71,13 +71,13 @@ sections = [
   { label: 'Additional Requirements' }
 ];
 
-// activeIndex = 0;
+acceptTerms: boolean = false; // default = NO
 
-// setActive(index: number) {
-//   this.activeIndex = index;
-// }
+toggleTerms() {
+  this.acceptTerms = !this.acceptTerms;
+}
 activeStep: number = 1;
-acceptTerms: boolean = false;
+
 
 
 onNext(activateCallback: (step: number) => void) {

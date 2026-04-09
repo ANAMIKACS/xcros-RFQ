@@ -139,6 +139,61 @@
 
 //general
 // ── Right section wrapper ──────────────────────────────
+
+.terms-row {
+  display: flex;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.terms-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Toggle container */
+.toggle-switch {
+  width: 90px;
+  height: 36px;
+  background: #d32f2f; /* 🔴 red (default) */
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  transition: 0.3s;
+}
+
+/* Circle */
+.toggle-circle {
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  transition: 0.3s;
+}
+
+/* Text */
+.toggle-text {
+  margin-left: auto;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ✅ ACTIVE (YES = GREEN) */
+.toggle-switch.active {
+  background: #2e7d32; /* 🟢 green */
+}
+
+/* Move circle right */
+.toggle-switch.active .toggle-circle {
+  left: 55px;
+}
 .right-section {
   display: flex;
   flex-direction: column;
@@ -153,7 +208,6 @@
   flex-direction: column;
   flex: 1;
   height: 100%;
-  min-height: 100%;
 }
 
 // ── Step list bar ──────────────────────────────────────

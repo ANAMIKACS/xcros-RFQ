@@ -104,7 +104,8 @@
           <!-- PANEL 1 - General -->
           <p-step-panel [value]="1">
             <ng-template #content let-activateCallback="activateCallback">
-              <div class="panel-content px-4">
+
+                 <div class="panel-content px-4">
 
                 <h3 class="panel-title">General Details</h3>
 
@@ -160,12 +161,30 @@
 
                 <div class="divider"></div>
 
-                <div class="terms-row">
-                  <label>Do You Accept Terms & Conditions</label>
+                <div class="terms-row d-flex gap-4">
 
-                </div>
+  <label class="terms-label">
+    Do You Accept Terms & Conditions
+  </label>
+
+  <div
+    class="toggle-switch"
+    [class.active]="acceptTerms"
+    (click)="toggleTerms()">
+
+    <div class="toggle-circle"></div>
+
+    <span class="toggle-text">
+      {{ acceptTerms ? 'Yes' : 'No' }}
+    </span>
+
+  </div>
+
+</div>
 
               </div>
+
+
 
               <!-- Bottom Buttons -->
               <div class="bottom-buttons">
