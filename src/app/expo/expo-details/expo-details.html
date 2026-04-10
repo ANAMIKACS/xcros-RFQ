@@ -16,6 +16,9 @@
       <div class="left-column">
         <!-- Main Content Card -->
         <div class="main-info-card shadow-sm">
+
+
+          <img src="/EXPO/Rectangle 3.png" class="main-event-image mt-4" alt="Expo Floor">
           <p class="description-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -25,9 +28,6 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </p>
-
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop" class="main-event-image mt-4" alt="Expo Floor">
-
           <div class="tags-row mt-4">
             <button class="tag-btn">Lorem</button>
             <button class="tag-btn">Lorem</button>
@@ -61,16 +61,16 @@
 
         <!-- Tab Content Area -->
         <div class="tab-content-area mt-4 bg-white p-4 shadow-sm tab-card">
-          
+
           <!-- Sub Tabs (Only for certain tabs) -->
           <div class="sub-tabs mb-4" *ngIf="activeTab === 'register' || activeTab === 'participants' || activeTab === 'faq' || activeTab === 'contact'">
             <button class="sub-tab-btn" [class.active]="activeSubTab === 'exhibitors'" [class.outline]="activeSubTab !== 'exhibitors'" (click)="setSubTab('exhibitors')">Exhibitors</button>
             <button class="sub-tab-btn" [class.active]="activeSubTab === 'visitors'" [class.outline]="activeSubTab !== 'visitors'" (click)="setSubTab('visitors')">Visitors</button>
           </div>
           <div class="sub-tabs schedule-sub-tabs mb-4" *ngIf="activeTab === 'schedule'">
-            <button class="sub-tab-btn" *ngFor="let day of scheduleDays; let i = index" 
-                [class.active]="activeScheduleDay === day" 
-                [class.outline]="activeScheduleDay !== day" 
+            <button class="sub-tab-btn" *ngFor="let day of scheduleDays; let i = index"
+                [class.active]="activeScheduleDay === day"
+                [class.outline]="activeScheduleDay !== day"
                 (click)="setScheduleDay(day)">Day {{i+1}}</button>
           </div>
 
@@ -109,7 +109,7 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="checkbox-group mt-4">
               <label class="custom-checkbox mb-3">
                 <input type="checkbox">
@@ -132,12 +132,12 @@
                 <span class="label-text">We will appreciate if you can let us know how you would like to be contacted, so that we can update your preferences immediately.</span>
               </label>
             </div>
-            
+
             <div class="d-flex gap-5 mb-4 ms-4 ps-2">
               <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text fw-bold">Email</span></label>
               <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text fw-bold">Mobile</span></label>
             </div>
-            
+
             <button class="btn btn-warning submit-btn">SUBMIT</button>
           </div>
 
@@ -167,9 +167,9 @@
 
           <!-- PARTICIPANTS TAB -->
           <div *ngIf="activeTab === 'participants'" class="participants-grid">
-            <div class="participant-item" *ngFor="let p of participants" 
-                [class.bg-dark]="p.dark" 
-                [class.bg-red]="p.red" 
+            <div class="participant-item" *ngFor="let p of participants"
+                [class.bg-dark]="p.dark"
+                [class.bg-red]="p.red"
                 [class.bg-blue]="p.blue">
               <img [src]="p.src" [alt]="p.name" [class.invert]="p.dark && !p.bgImage" [class.bg-image-fix]="p.bgImage">
             </div>
@@ -195,13 +195,13 @@
               <div class="form-group mb-3"><label>Email ID*</label><input type="email" class="form-control"></div>
               <div class="form-group mb-3"><label>Subject*</label><input type="text" class="form-control"></div>
               <div class="form-group mb-4"><label>Message</label><textarea class="form-control" rows="4"></textarea></div>
-              
+
               <label class="custom-checkbox teal-checkbox mb-4" style="align-items: center;">
                 <input type="checkbox" checked>
                 <span class="checkmark"></span>
                 <span class="label-text fw-bold text-dark" style="font-size: 0.9rem;">I consent to Event organizers and Exhibitors collecting my details through this form to contact me.</span>
               </label>
-              
+
               <button class="btn btn-warning submit-btn">SUBMIT</button>
             </div>
           </div>
@@ -302,7 +302,7 @@
               <button class="rep-tab-btn active">Business</button>
               <button class="rep-tab-btn outline">Location Agent</button>
             </div>
-            
+
             <div class="rep-profile d-flex justify-content-between align-items-center">
               <div class="rep-user d-flex align-items-center gap-3">
                 <img src="https://i.pravatar.cc/150?u=50" alt="Bala" class="rounded-circle" width="45" height="45">
