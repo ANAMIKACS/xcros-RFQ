@@ -18,7 +18,7 @@
 </div>
 </section>
 <section>
-<div class="container mt-5">
+<div class="container pt-5">
   <div class="upcoming-section">
     <div class="section-title-block text-center">
       <h2>Upcoming Events</h2>
@@ -49,69 +49,36 @@
     </div>
 
     <div class="cards-grid">
-      <!-- Card 1 -->
-      <div class="event-card-v2">
-        <div class="card-image-wrap">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Property">
-          <span class="status-badge">Upcoming</span>
-        </div>
-        <div class="card-body">
-          <h3>Property Expo</h3>
-          <div class="card-tags">
-            <span class="tag-category">Category</span>
-            <span class="tag-info"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <span class="tag-info"><i class="pi pi-clock"></i> 3 Days</span>
-          </div>
-          <p class="description">Strategists who think in code. Turning technology into your competitive advantage.</p>
-          <div class="card-footer">
-            <span class="date-footer"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <button class="details-link" routerLink="/expo/expodetails">Details >></button>
-          </div>
-        </div>
+      @for (event of events; track event) {
+  <div class="event-card-v2">
+    <div class="card-image-wrap">
+      <img [src]="event.image" [alt]="event.title">
+      <span class="status-badge">{{ event.status }}</span>
+    </div>
+    <div class="card-body">
+      <h3>{{ event.title }}</h3>
+      <div class="card-tags">
+        <span class="tag-category">{{ event.category }}</span>
+        <span class="tag-info">
+          <i class="pi pi-calendar"></i> {{ event.date }}
+        </span>
+        <span class="tag-info">
+          <i class="pi pi-clock"></i> {{ event.duration }}
+        </span>
       </div>
-
-      <!-- Card 2 -->
-      <div class="event-card-v2">
-        <div class="card-image-wrap">
-          <img src="https://images.unsplash.com/photo-1538688523318-654ba4cc077a?q=80&w=2070&auto=format&fit=crop" alt="Furniture">
-          <span class="status-badge">Upcoming</span>
-        </div>
-        <div class="card-body">
-          <h3>Furniture Expo</h3>
-          <div class="card-tags">
-            <span class="tag-category">Category</span>
-            <span class="tag-info"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <span class="tag-info"><i class="pi pi-clock"></i> 3 Days</span>
-          </div>
-          <p class="description">Strategists who think in code. Turning technology into your competitive advantage.</p>
-          <div class="card-footer">
-            <span class="date-footer"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <button class="details-link" [routerLink]="['/expo/details']">Details >></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="event-card-v2">
-        <div class="card-image-wrap">
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2070&auto=format&fit=crop" alt="Farmlands">
-          <span class="status-badge">Upcoming</span>
-        </div>
-        <div class="card-body">
-          <h3>Farm lands Expo</h3>
-          <div class="card-tags">
-            <span class="tag-category">Category</span>
-            <span class="tag-info"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <span class="tag-info"><i class="pi pi-clock"></i> 3 Days</span>
-          </div>
-          <p class="description">Strategists who think in code. Turning technology into your competitive advantage.</p>
-          <div class="card-footer">
-            <span class="date-footer"><i class="pi pi-calendar"></i> 13 March,2026</span>
-            <button class="details-link" [routerLink]="['/expo/details']">Details >></button>
-          </div>
-        </div>
+      <p class="description">{{ event.description }}</p>
+      <div class="card-footer">
+        <span class="date-footer">
+          <i class="pi pi-calendar"></i> {{ event.date }}
+        </span>
+        <button class="details-link" [routerLink]="event.link">Details >></button>
       </div>
     </div>
+  </div>
+}
+
+    </div>
+
   </div>
 </div>
 

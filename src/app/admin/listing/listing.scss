@@ -1,9 +1,23 @@
 
 //listing Section
+
+@media (max-width: 768px) {
+
+  .click-chat {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .click-chat .btn {
+    width: 100% !important;
+  }
+
+}
     .date i {
         color:#008080;
     }
-   
+
     .badge {
   background: #1DB697;
   padding: 5px 10px;
@@ -50,7 +64,7 @@
   scrollbar-color: #008080 #ffffff;
 }
 .listing-card {
-  display: flex;    
+  display: flex;
   padding: 12px;
   margin-bottom: 12px;
   background: #f8f9f9;
@@ -69,6 +83,11 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+.click-chat{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .listing-left {
   width: 140px;
 }
@@ -111,7 +130,7 @@
 }
 .listing-end{
     width: 210px;
-    text-align: center 
+    text-align: center
 }
 .timer-box {
   background: #008080;
@@ -135,7 +154,7 @@
   border-radius: 10px;
   padding: 20px;
   display: flex;
-  align-items: center;  
+  align-items: center;
   gap: 15px;
     border:1px solid #e4e2e2;
 }
@@ -336,7 +355,7 @@ background: #FF9800;
   display:flex;
   margin-bottom: 10px;
   width: 170px;
-  
+
 }
 .user-box i{
   color:#ff9800

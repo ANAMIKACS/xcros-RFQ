@@ -207,7 +207,7 @@
       <h2 class="panel-title">Personal Details</h2>
 
       @for (field of simpleFields; track field.label) {
-    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
       <label class="form-label">{{ field.label }}</label>
       <input
         pInputText
@@ -218,7 +218,7 @@
   }
 
   <!-- State, City, Pincode Row (Special Case) -->
-  <div class="grid-row d-flex flex-row justify-content-around mb-4">
+  <div class="grid-row d-flex flex-row justify-content-around mb-2">
     @for (field of addressFields; track field.label) {
       <div class="form-group d-flex flex-row ">
         <label class="form-label">{{ field.label }}</label>
@@ -231,7 +231,7 @@
     }
 </div>
       @for (field of simple; track field.label) {
-    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
       <label class="form-label">{{ field.label }}</label>
       <input
         pInputText
@@ -262,7 +262,7 @@
               <div class="panel-content">
                 <h3 class="panel-title">Property Details</h3>
                 @for (field of propertyFields; track field.label) {
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                  <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                     <label class="form-label">{{ field.label }}</label>
                     <input
                       pInputText
@@ -273,7 +273,7 @@
                   }
                   <div class="form-group d-flex flex-row gap-3">
                     <label class="form-label">Property Type</label>
-                    <div class="buttons d-flex flex-row justify-content-evenly mb-4">
+                    <div class="buttons d-flex flex-row justify-content-evenly mb-2">
                       <button type="button" class="property-btn" [class.active]="propertyType === 'Plot'" (click)="setPropertyType('Plot')">Plot</button>
                       <button type="button" class="property-btn" [class.active]="propertyType === 'Apartment'" (click)="setPropertyType('Apartment')">Apartment</button>
                       <button type="button" class="property-btn" [class.active]="propertyType === 'Villa'" (click)="setPropertyType('Villa')">Villa</button>
@@ -282,22 +282,22 @@
                   </div>
 
                   <div *ngIf="propertyType === 'Plot'">
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Plot Type</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="plotType" placeholder="" />
                     </div>
                   </div>
 
                   <div *ngIf="propertyType !== 'Plot'">
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Bedrooms</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="bedrooms" placeholder="" />
                     </div>
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Bathrooms</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="bathrooms" placeholder="" />
                     </div>
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Property Size</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="propertySize" placeholder="" />
                     </div>
@@ -351,7 +351,7 @@
                   </div>
                   </div>
 
-                  <div *ngIf="selectedParking === 'Four-wheeler'" class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                  <div *ngIf="selectedParking === 'Four-wheeler'" class="form-group mb-2 d-flex flex-row justify-content-evenly">
                     <label class="form-label">Parking Type</label>
                     <div class="radio-group d-flex gap-4 align-items-center">
                       <div class="radio-item">
@@ -368,7 +368,7 @@
                   <div class="divider"></div>
 
                 @for (field of budjetFields; track field.label) {
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                  <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                     <label class="form-label">{{ field.label }}</label>
                     <input
                       pInputText
@@ -396,11 +396,11 @@
                   </div>
 
                   <div *ngIf="loanRequired === true">
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Income</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="income" placeholder="" />
                     </div>
-                    <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                    <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                       <label class="form-label">Loan Requirement</label>
                       <input pInputText type="text" class="form-input" [(ngModel)]="loanRequirement" placeholder="" />
                     </div>
@@ -428,7 +428,7 @@ Location</label>
                     <div class="divider"></div>
 
                      @for (field of locationFields; track field.label) {
-                  <div class="form-group mb-4 d-flex flex-row justify-content-evenly">
+                  <div class="form-group mb-2 d-flex flex-row justify-content-evenly">
                     <label class="form-label">{{ field.label }}</label>
                     <input
                       pInputText

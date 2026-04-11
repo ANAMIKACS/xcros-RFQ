@@ -13,6 +13,99 @@ images = [
   '/EXPO/bg-img2.png'
 ];
 
+
+events = [
+  {
+    image: '/EXPO/property-expo.png',
+    title: 'Property Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/furniture-expo.png',
+    title: 'Furniture Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/farm-expo.png',
+    title: 'Farm lands Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+   {
+    image: '/EXPO/property-expo.png',
+    title: 'Property Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/furniture-expo.png',
+    title: 'Furniture Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/farm-expo.png',
+    title: 'Farm lands Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+   {
+    image: '/EXPO/property-expo.png',
+    title: 'Property Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/furniture-expo.png',
+    title: 'Furniture Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  },
+  {
+    image: '/EXPO/farm-expo.png',
+    title: 'Farm lands Expo',
+    status: 'Upcoming',
+    category: 'Category',
+    date: '13 March,2026',
+    duration: '3 Days',
+    description: 'Strategists who think in code. Turning technology into your competitive advantage.',
+    link: ['/expo/details']
+  }
+];
 currentIndex = 0;
 
 ngOnInit() {
@@ -21,4 +114,8 @@ ngOnInit() {
       (this.currentIndex + 1) % this.images.length;
   }, 1500);
 }
+
+
+
+
 }
