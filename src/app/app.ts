@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('xcros-RFQ');
+
+  constructor(router: Router) {
+    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  }
 }
